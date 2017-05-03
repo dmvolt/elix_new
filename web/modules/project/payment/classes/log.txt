@@ -1,0 +1,514 @@
+[2015-08-13 22:46:31] Start checkOrder
+[2015-08-13 22:46:31] Security type PKCS7
+[2015-08-13 22:46:47] Start checkOrder
+[2015-08-13 22:46:47] Security type PKCS7
+[2015-08-13 22:47:07] Start paymentAviso
+[2015-08-13 22:47:07] Security type PKCS7
+[2015-08-13 22:49:21] Start checkOrder
+[2015-08-13 22:49:21] Security type PKCS7
+[2015-08-13 22:50:48] Start paymentAviso
+[2015-08-13 22:50:48] Security type PKCS7
+[2015-08-13 23:08:06] Start paymentAviso
+[2015-08-13 23:08:06] Security type PKCS7
+[2015-08-13 23:08:58] Start checkOrder
+[2015-08-13 23:08:58] Security type PKCS7
+[2015-08-13 23:11:15] Start checkOrder
+[2015-08-13 23:11:15] Security type PKCS7
+[2015-08-13 23:11:19] Start paymentAviso
+[2015-08-13 23:11:19] Security type PKCS7
+[2015-08-13 23:42:10] Start checkOrder
+[2015-08-13 23:42:10] Security type PKCS7
+[2015-08-13 23:42:10] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-13T23:42:10.000+07:00" code="200"  invoiceId="" shopId="47861"/>
+[2015-08-13 23:43:20] Start paymentAviso
+[2015-08-13 23:43:20] Security type PKCS7
+[2015-08-13 23:43:21] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-08-13T23:43:21.000+07:00" code="200"  invoiceId="" shopId="47861"/>
+[2015-08-13 23:46:35] Start checkOrder
+[2015-08-13 23:46:35] Security type PKCS7
+[2015-08-13 23:46:35] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-13T23:46:35.000+07:00" code="200"  invoiceId="" shopId="47861"/>
+[2015-08-14 18:30:48] Start checkOrder
+[2015-08-14 18:30:48] Security type PKCS7
+[2015-08-14 18:30:49] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="164" orderSumAmount="1096.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-14T14:30:48.444+03:00" orderCreatedDatetime="2015-08-14T14:30:48.338+03:00" invoiceId="2000000549255" shopId="47861" shopSumAmount="1057.64" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="195112758211"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="deb766d316e18f83bab9b39c2340d7ab343f7ba3"></param><param key="nst_unilabel" val="1d5fe4ea-0009-5000-8000-0000004e3314"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="213.87.123.244"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="164_140815142946_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="164_140815142946_00000_47861"></param><param key="yandexPaymentId" val="2570013198927"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313831333835375f66373932326339383133643136376239653732643339613763376665383864646432316237303163"></param><param key="cdd_auth_code" val="756359"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-14 18:30:49] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 164
+    [orderSumAmount] => 1096.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-14T14:30:48.444+03:00
+    [orderCreatedDatetime] => 2015-08-14T14:30:48.338+03:00
+    [invoiceId] => 2000000549255
+    [shopId] => 47861
+    [shopSumAmount] => 1057.64
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-14 18:30:49] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-14T18:30:49.000+07:00" code="0"  invoiceId="2000000549255" shopId="47861"/>
+[2015-08-14 18:30:49] Start paymentAviso
+[2015-08-14 18:30:49] Security type PKCS7
+[2015-08-14 18:30:49] Row xml: <?xml version="1.0" encoding="UTF-8" ?><paymentAvisoRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="164" orderSumAmount="1096.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" paymentDatetime="2015-08-14T14:30:49.142+03:00" customerNumber="" paymentType="AC" requestDatetime="2015-08-14T14:30:49.613+03:00" orderCreatedDatetime="2015-08-14T14:30:48.338+03:00" invoiceId="2000000549255" shopId="47861" shopSumAmount="1057.64" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="195112758211"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="deb766d316e18f83bab9b39c2340d7ab343f7ba3"></param><param key="nst_unilabel" val="1d5fe4ea-0009-5000-8000-0000004e3314"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="213.87.123.244"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="164_140815142946_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="164_140815142946_00000_47861"></param><param key="yandexPaymentId" val="2570013198927"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313831333835375f66373932326339383133643136376239653732643339613763376665383864646432316237303163"></param><param key="cdd_auth_code" val="756359"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></paymentAvisoRequest>
+[2015-08-14 18:30:49] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 164
+    [orderSumAmount] => 1096.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [paymentDatetime] => 2015-08-14T14:30:49.142+03:00
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-14T14:30:49.613+03:00
+    [orderCreatedDatetime] => 2015-08-14T14:30:48.338+03:00
+    [invoiceId] => 2000000549255
+    [shopId] => 47861
+    [shopSumAmount] => 1057.64
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-14 18:30:49] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-08-14T18:30:49.000+07:00" code="0"  invoiceId="2000000549255" shopId="47861"/>
+[2015-08-14 19:33:37] Start checkOrder
+[2015-08-14 19:33:37] Security type PKCS7
+[2015-08-14 19:33:37] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-14T19:33:37.000+07:00" code="200"  invoiceId="" shopId="47861"/>
+[2015-08-14 19:33:59] Start paymentAviso
+[2015-08-14 19:33:59] Security type PKCS7
+[2015-08-14 19:33:59] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-08-14T19:33:59.000+07:00" code="200"  invoiceId="" shopId="47861"/>
+[2015-08-15 17:36:28] Start checkOrder
+[2015-08-15 17:36:28] Security type PKCS7
+[2015-08-15 17:36:28] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="167" orderSumAmount="1340.00" orderSumCurrencyPaycash="10643" paymentPayerCode="4100322772210" customerNumber="" paymentType="PC" requestDatetime="2015-08-15T13:36:28.433+03:00" orderCreatedDatetime="2015-08-15T13:35:49.360+03:00" invoiceId="2000000549719" shopId="47861" shopSumAmount="1299.80" shopSumBankPaycash="1003"><param key="cps_region_id" val="213"></param><param key="cps_eplDisable" val="true"></param><param key="merchant_order_id" val="167_150815133548_00000_47861"></param><param key="cps-source" val="default"></param><param key="cps_theme" val="default"></param><param key="cps_rebillingAllowed" val="false"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="successURL" val=""></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="sumCurrency" val="10643"></param><param key="isViaWeb" val="true"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="targetcurrency" val="643"></param><param key="payment-name" val="Заказ товара в интернет-магазине Bagwill"></param><param key="ContractTemplateID" val="523497"></param><param key="nst_unilabel" val="1d6129c3-0009-5000-8000-00000054aed7"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="77.75.156.122"></param><param key="isOUTshop" val="true"></param><param key="cps_changeSum" val="false"></param><param key="scid" val="525950"></param></checkOrderRequest>
+[2015-08-15 17:36:28] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 167
+    [orderSumAmount] => 1340.00
+    [orderSumCurrencyPaycash] => 10643
+    [paymentPayerCode] => 4100322772210
+    [customerNumber] => 
+    [paymentType] => PC
+    [requestDatetime] => 2015-08-15T13:36:28.433+03:00
+    [orderCreatedDatetime] => 2015-08-15T13:35:49.360+03:00
+    [invoiceId] => 2000000549719
+    [shopId] => 47861
+    [shopSumAmount] => 1299.80
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-15 17:36:28] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-15T17:36:28.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000549719" shopId="47861"/>
+[2015-08-15 17:39:20] Start checkOrder
+[2015-08-15 17:39:20] Security type PKCS7
+[2015-08-15 17:39:20] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="167" orderSumAmount="1340.00" orderSumCurrencyPaycash="10643" paymentPayerCode="4100322772210" customerNumber="36356456547645" paymentType="PC" requestDatetime="2015-08-15T13:39:20.255+03:00" orderCreatedDatetime="2015-08-15T13:39:01.978+03:00" invoiceId="2000000549719" shopId="47861" shopSumAmount="1299.80" shopSumBankPaycash="1003"><param key="cps_region_id" val="213"></param><param key="cps_eplDisable" val="true"></param><param key="merchant_order_id" val="167_150815133900_00000_47861"></param><param key="cps-source" val="default"></param><param key="cps_theme" val="default"></param><param key="cps_rebillingAllowed" val="false"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="successURL" val=""></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="sumCurrency" val="10643"></param><param key="isViaWeb" val="true"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="targetcurrency" val="643"></param><param key="payment-name" val="Заказ товара в интернет-магазине Bagwill"></param><param key="ContractTemplateID" val="523497"></param><param key="nst_unilabel" val="1d612a84-0009-5000-8000-00000054b410"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="77.75.156.122"></param><param key="isOUTshop" val="true"></param><param key="cps_changeSum" val="false"></param><param key="scid" val="525950"></param></checkOrderRequest>
+[2015-08-15 17:39:20] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 167
+    [orderSumAmount] => 1340.00
+    [orderSumCurrencyPaycash] => 10643
+    [paymentPayerCode] => 4100322772210
+    [customerNumber] => 36356456547645
+    [paymentType] => PC
+    [requestDatetime] => 2015-08-15T13:39:20.255+03:00
+    [orderCreatedDatetime] => 2015-08-15T13:39:01.978+03:00
+    [invoiceId] => 2000000549719
+    [shopId] => 47861
+    [shopSumAmount] => 1299.80
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-15 17:39:20] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-15T17:39:20.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000549719" shopId="47861"/>
+[2015-08-15 17:43:18] Start checkOrder
+[2015-08-15 17:43:18] Security type PKCS7
+[2015-08-15 17:43:18] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="167" orderSumAmount="1340.00" orderSumCurrencyPaycash="10643" paymentPayerCode="4100322772210" customerNumber="3463634561111" paymentType="PC" requestDatetime="2015-08-15T13:43:17.803+03:00" orderCreatedDatetime="2015-08-15T13:43:05.066+03:00" invoiceId="2000000549719" shopId="47861" shopSumAmount="1299.80" shopSumBankPaycash="1003"><param key="cps_region_id" val="213"></param><param key="cps_eplDisable" val="true"></param><param key="merchant_order_id" val="167_150815134303_00000_47861"></param><param key="cps-source" val="default"></param><param key="cps_theme" val="default"></param><param key="cps_rebillingAllowed" val="false"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="successURL" val=""></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="sumCurrency" val="10643"></param><param key="isViaWeb" val="true"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="targetcurrency" val="643"></param><param key="payment-name" val="Заказ товара в интернет-магазине Bagwill"></param><param key="ContractTemplateID" val="523497"></param><param key="nst_unilabel" val="1d612b77-0009-5000-8000-00000054baec"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="77.75.156.122"></param><param key="isOUTshop" val="true"></param><param key="cps_changeSum" val="false"></param><param key="scid" val="525950"></param></checkOrderRequest>
+[2015-08-15 17:43:18] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 167
+    [orderSumAmount] => 1340.00
+    [orderSumCurrencyPaycash] => 10643
+    [paymentPayerCode] => 4100322772210
+    [customerNumber] => 3463634561111
+    [paymentType] => PC
+    [requestDatetime] => 2015-08-15T13:43:17.803+03:00
+    [orderCreatedDatetime] => 2015-08-15T13:43:05.066+03:00
+    [invoiceId] => 2000000549719
+    [shopId] => 47861
+    [shopSumAmount] => 1299.80
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-15 17:43:18] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-15T17:43:18.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000549719" shopId="47861"/>
+[2015-08-15 17:45:37] Start checkOrder
+[2015-08-15 17:45:37] Security type PKCS7
+[2015-08-15 17:45:37] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="168" orderSumAmount="1290.00" orderSumCurrencyPaycash="10643" paymentPayerCode="4100322772210" customerNumber="168" paymentType="PC" requestDatetime="2015-08-15T13:45:37.532+03:00" orderCreatedDatetime="2015-08-15T13:45:24.984+03:00" invoiceId="2000000549725" shopId="47861" shopSumAmount="1251.30" shopSumBankPaycash="1003"><param key="cps_region_id" val="213"></param><param key="cps_eplDisable" val="true"></param><param key="merchant_order_id" val="168_150815134523_00000_47861"></param><param key="cps-source" val="default"></param><param key="cps_theme" val="default"></param><param key="cps_rebillingAllowed" val="false"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="successURL" val=""></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="sumCurrency" val="10643"></param><param key="isViaWeb" val="true"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="targetcurrency" val="643"></param><param key="payment-name" val="Заказ товара в интернет-магазине Bagwill"></param><param key="ContractTemplateID" val="523497"></param><param key="nst_unilabel" val="1d612c03-0009-5000-8000-00000054beff"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="77.75.156.122"></param><param key="isOUTshop" val="true"></param><param key="cps_changeSum" val="false"></param><param key="scid" val="525950"></param></checkOrderRequest>
+[2015-08-15 17:45:37] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 168
+    [orderSumAmount] => 1290.00
+    [orderSumCurrencyPaycash] => 10643
+    [paymentPayerCode] => 4100322772210
+    [customerNumber] => 168
+    [paymentType] => PC
+    [requestDatetime] => 2015-08-15T13:45:37.532+03:00
+    [orderCreatedDatetime] => 2015-08-15T13:45:24.984+03:00
+    [invoiceId] => 2000000549725
+    [shopId] => 47861
+    [shopSumAmount] => 1251.30
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-15 17:45:37] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-15T17:45:37.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000549725" shopId="47861"/>
+[2015-08-18 14:02:18] Start checkOrder
+[2015-08-18 14:02:18] Security type PKCS7
+[2015-08-18 14:02:18] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="172" orderSumAmount="1494.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:02:17.893+03:00" orderCreatedDatetime="2015-08-18T10:02:17.790+03:00" invoiceId="2000000551140" shopId="47861" shopSumAmount="1441.71" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="685697423534"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="bb645452ba46a9fe78e2e2b7d525da6cb08e6a33"></param><param key="nst_unilabel" val="1d64ebf0-0009-5000-8000-000000676cac"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="172_180815100104_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="172_180815100104_00000_47861"></param><param key="yandexPaymentId" val="2570013315648"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333131385f61366665646135393134366236316263623531356538373631646235646637633361373039393236"></param><param key="cdd_auth_code" val="419836"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:02:18] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 172
+    [orderSumAmount] => 1494.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:02:17.893+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:02:17.790+03:00
+    [invoiceId] => 2000000551140
+    [shopId] => 47861
+    [shopSumAmount] => 1441.71
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:02:18] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:02:18.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000551140" shopId="47861"/>
+[2015-08-18 14:06:39] Start checkOrder
+[2015-08-18 14:06:39] Security type PKCS7
+[2015-08-18 14:06:39] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="173" orderSumAmount="1552.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:06:38.986+03:00" orderCreatedDatetime="2015-08-18T10:06:38.774+03:00" invoiceId="2000000551143" shopId="47861" shopSumAmount="1497.68" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="951789152672"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="d2bd3279ea0fb9253519698902f8a24d05a807c1"></param><param key="nst_unilabel" val="1d64ecfd-0009-5000-8000-0000006773f3"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="173_180815100533_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="173_180815100533_00000_47861"></param><param key="yandexPaymentId" val="2570013315960"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333133315f30383333626635343561613464396638636639656464326362653136626165316235613533356535"></param><param key="cdd_auth_code" val="150604"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:06:39] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 173
+    [orderSumAmount] => 1552.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:06:38.986+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:06:38.774+03:00
+    [invoiceId] => 2000000551143
+    [shopId] => 47861
+    [shopSumAmount] => 1497.68
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:06:39] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:06:39.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000551143" shopId="47861"/>
+[2015-08-18 14:10:34] Start checkOrder
+[2015-08-18 14:10:34] Security type PKCS7
+[2015-08-18 14:10:34] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="174" orderSumAmount="1540.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:10:33.661+03:00" orderCreatedDatetime="2015-08-18T10:10:33.570+03:00" invoiceId="2000000551146" shopId="47861" shopSumAmount="1486.10" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="182099012466"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="96615147e4e2c080312e966d7f9d3ce607efaa03"></param><param key="nst_unilabel" val="1d64edcb-0009-5000-8000-000000677957"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="174_180815100859_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="174_180815100859_00000_47861"></param><param key="yandexPaymentId" val="2570013316284"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333134305f31383461656365323164303932326333643938626564373130346363363133323738396536626466"></param><param key="cdd_auth_code" val="010199"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:10:34] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 174
+    [orderSumAmount] => 1540.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:10:33.661+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:10:33.570+03:00
+    [invoiceId] => 2000000551146
+    [shopId] => 47861
+    [shopSumAmount] => 1486.10
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:10:34] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:10:34.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000551146" shopId="47861"/>
+[2015-08-18 14:17:13] Start checkOrder
+[2015-08-18 14:17:13] Security type PKCS7
+[2015-08-18 14:17:13] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="175" orderSumAmount="1550.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:17:13.246+03:00" orderCreatedDatetime="2015-08-18T10:17:13.154+03:00" invoiceId="2000000551150" shopId="47861" shopSumAmount="1495.75" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="584663270984"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="d236681d33e4e22579dec4aa77cf7c7ffd21381e"></param><param key="nst_unilabel" val="1d64ef81-0009-5000-8000-000000678589"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="175_180815101617_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="175_180815101617_00000_47861"></param><param key="yandexPaymentId" val="2570013316426"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333135395f65346361356366303962363231663464643165663032343130626134666337663930623364356261"></param><param key="cdd_auth_code" val="268331"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:17:13] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 175
+    [orderSumAmount] => 1550.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:17:13.246+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:17:13.154+03:00
+    [invoiceId] => 2000000551150
+    [shopId] => 47861
+    [shopSumAmount] => 1495.75
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:17:13] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:17:13.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000551150" shopId="47861"/>
+[2015-08-18 14:20:26] Start checkOrder
+[2015-08-18 14:20:26] Security type PKCS7
+[2015-08-18 14:20:26] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="176" orderSumAmount="1410.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:20:25.960+03:00" orderCreatedDatetime="2015-08-18T10:20:25.829+03:00" invoiceId="2000000551155" shopId="47861" shopSumAmount="1360.65" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="776533631672"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="fdbc3e8559572df7375e063c7065752d2769481b"></param><param key="nst_unilabel" val="1d64f04f-0009-5000-8000-000000678b26"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="176_180815101943_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="176_180815101943_00000_47861"></param><param key="yandexPaymentId" val="2570013317069"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333137325f64656634323434616265653034363363393439386165353334373831306131343962346262333236"></param><param key="cdd_auth_code" val="629694"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:20:26] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 176
+    [orderSumAmount] => 1410.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:20:25.960+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:20:25.829+03:00
+    [invoiceId] => 2000000551155
+    [shopId] => 47861
+    [shopSumAmount] => 1360.65
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:20:26] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:20:26.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000551155" shopId="47861"/>
+[2015-08-18 14:26:50] Start checkOrder
+[2015-08-18 14:26:50] Security type PKCS7
+[2015-08-18 14:26:50] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="177" orderSumAmount="1096.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:26:50.478+03:00" orderCreatedDatetime="2015-08-18T10:26:50.334+03:00" invoiceId="2000000551158" shopId="47861" shopSumAmount="1057.64" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="165462231380"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="bdf0a02bffbd6be68f2e08a60b8fe2869c3ca1c3"></param><param key="nst_unilabel" val="1d64f1cf-0009-5000-8000-000000679633"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="177_180815102607_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="177_180815102607_00000_47861"></param><param key="yandexPaymentId" val="2570013317445"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333230315f30636635333039393433316366383362366564643137613239623366326264326566623133333936"></param><param key="cdd_auth_code" val="226989"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:26:50] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 177
+    [orderSumAmount] => 1096.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:26:50.478+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:26:50.334+03:00
+    [invoiceId] => 2000000551158
+    [shopId] => 47861
+    [shopSumAmount] => 1057.64
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:26:50] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:26:50.000+07:00" code="200" message="Нет параметра orderNumber" invoiceId="2000000551158" shopId="47861"/>
+[2015-08-18 14:33:05] Start checkOrder
+[2015-08-18 14:33:05] Security type PKCS7
+[2015-08-18 14:33:05] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="178" orderSumAmount="1057.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:33:05.087+03:00" orderCreatedDatetime="2015-08-18T10:33:04.974+03:00" invoiceId="2000000551165" shopId="47861" shopSumAmount="1020.00" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="538995963067"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="d67306df09d5a760e1cfbe5d09c88481659837ac"></param><param key="nst_unilabel" val="1d64f343-0009-5000-8000-00000067a0e5"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="178_180815103219_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="178_180815103219_00000_47861"></param><param key="yandexPaymentId" val="2570013317998"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333233325f31653563366532636139333965336638646233653139346663653466613638656562396562323830"></param><param key="cdd_auth_code" val="960846"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 14:33:05] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 178
+    [orderSumAmount] => 1057.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:33:05.087+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:33:04.974+03:00
+    [invoiceId] => 2000000551165
+    [shopId] => 47861
+    [shopSumAmount] => 1020.00
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:33:05] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T14:33:05.000+07:00" code="0" message="Все ок" invoiceId="2000000551165" shopId="47861"/>
+[2015-08-18 14:33:06] Start paymentAviso
+[2015-08-18 14:33:06] Security type PKCS7
+[2015-08-18 14:33:06] Row xml: <?xml version="1.0" encoding="UTF-8" ?><paymentAvisoRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="178" orderSumAmount="1057.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" paymentDatetime="2015-08-18T10:33:05.560+03:00" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T10:33:06.048+03:00" orderCreatedDatetime="2015-08-18T10:33:04.974+03:00" invoiceId="2000000551165" shopId="47861" shopSumAmount="1020.00" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="538995963067"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="d67306df09d5a760e1cfbe5d09c88481659837ac"></param><param key="nst_unilabel" val="1d64f343-0009-5000-8000-00000067a0e5"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="178_180815103219_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="178_180815103219_00000_47861"></param><param key="yandexPaymentId" val="2570013317998"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333233325f31653563366532636139333965336638646233653139346663653466613638656562396562323830"></param><param key="cdd_auth_code" val="960846"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></paymentAvisoRequest>
+[2015-08-18 14:33:06] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 178
+    [orderSumAmount] => 1057.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [paymentDatetime] => 2015-08-18T10:33:05.560+03:00
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T10:33:06.048+03:00
+    [orderCreatedDatetime] => 2015-08-18T10:33:04.974+03:00
+    [invoiceId] => 2000000551165
+    [shopId] => 47861
+    [shopSumAmount] => 1020.00
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 14:33:06] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-08-18T14:33:06.000+07:00" code="0"  invoiceId="2000000551165" shopId="47861"/>
+[2015-08-18 15:05:34] Start checkOrder
+[2015-08-18 15:05:34] Security type PKCS7
+[2015-08-18 15:05:34] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="180" orderSumAmount="1794.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T11:05:34.097+03:00" orderCreatedDatetime="2015-08-18T11:05:33.975+03:00" invoiceId="2000000551240" shopId="47861" shopSumAmount="1731.21" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="486394273343"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="2e31ff0f35b3a724987806c54edc22b83320fbe6"></param><param key="nst_unilabel" val="1d64fadb-0009-5000-8000-00000067d8da"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="180_180815110443_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="180_180815110443_00000_47861"></param><param key="yandexPaymentId" val="2570013323418"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333438305f33623835376339663365366537663662326130386330663062613766656134323339616638353561"></param><param key="cdd_auth_code" val="271487"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 15:05:34] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 180
+    [orderSumAmount] => 1794.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T11:05:34.097+03:00
+    [orderCreatedDatetime] => 2015-08-18T11:05:33.975+03:00
+    [invoiceId] => 2000000551240
+    [shopId] => 47861
+    [shopSumAmount] => 1731.21
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 15:05:34] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T15:05:34.000+07:00" code="0" message="Заказ успешно оплачен" invoiceId="2000000551240" shopId="47861"/>
+[2015-08-18 15:05:35] Start paymentAviso
+[2015-08-18 15:05:35] Security type PKCS7
+[2015-08-18 15:05:35] Row xml: <?xml version="1.0" encoding="UTF-8" ?><paymentAvisoRequest shopSumCurrencyPaycash="10643" rebillingOn="false" orderSumBankPaycash="1003" orderNumber="180" orderSumAmount="1794.00" orderSumCurrencyPaycash="10643" shopArticleId="196035" paymentPayerCode="4100322062290" paymentDatetime="2015-08-18T11:05:34.546+03:00" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T11:05:34.970+03:00" orderCreatedDatetime="2015-08-18T11:05:33.975+03:00" invoiceId="2000000551240" shopId="47861" shopSumAmount="1731.21" shopSumBankPaycash="1003"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0116"></param><param key="cdd_rrn" val="486394273343"></param><param key="external_id" val="deposit"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="ContractTemplateID" val="523497"></param><param key="uid" val=""></param><param key="depositNumber" val="2e31ff0f35b3a724987806c54edc22b83320fbe6"></param><param key="nst_unilabel" val="1d64fadb-0009-5000-8000-00000067d8da"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="525950"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="180_180815110443_00000_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="10643"></param><param key="cdd_pan_mask" val="426803|5624"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="180_180815110443_00000_47861"></param><param key="yandexPaymentId" val="2570013323418"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313832333438305f33623835376339663365366537663662326130386330663062613766656134323339616638353561"></param><param key="cdd_auth_code" val="271487"></param><param key="yandexuid" val="2365335551436639380"></param><param key="cps_changeSum" val="false"></param><param key="skr_env" val="desktop"></param></paymentAvisoRequest>
+[2015-08-18 15:05:35] Request: Array
+(
+    [shopSumCurrencyPaycash] => 10643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1003
+    [orderNumber] => 180
+    [orderSumAmount] => 1794.00
+    [orderSumCurrencyPaycash] => 10643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 4100322062290
+    [paymentDatetime] => 2015-08-18T11:05:34.546+03:00
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T11:05:34.970+03:00
+    [orderCreatedDatetime] => 2015-08-18T11:05:33.975+03:00
+    [invoiceId] => 2000000551240
+    [shopId] => 47861
+    [shopSumAmount] => 1731.21
+    [shopSumBankPaycash] => 1003
+)
+
+[2015-08-18 15:05:36] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-08-18T15:05:36.000+07:00" code="0"  invoiceId="2000000551240" shopId="47861"/>
+[2015-08-18 19:29:45] Start checkOrder
+[2015-08-18 19:29:45] Security type PKCS7
+[2015-08-18 19:29:45] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="643" rebillingOn="false" orderSumBankPaycash="1001" orderNumber="182" orderSumAmount="1.00" orderSumCurrencyPaycash="643" shopArticleId="196035" paymentPayerCode="410013401128218" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T15:29:45.058+03:00" orderCreatedDatetime="2015-08-18T15:29:44.911+03:00" invoiceId="2000275089687" shopId="47861" shopSumAmount="0.96" shopSumBankPaycash="1001"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0915"></param><param key="cdd_rrn" val="523017269223"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="external_id" val="deposit"></param><param key="ContractTemplateID" val="524282"></param><param key="uid" val=""></param><param key="depositNumber" val="a6c02aa425a6155dd3979dec33d7e63a44042ff3"></param><param key="nst_unilabel" val="1d653890-0009-5000-8000-00000069ed24"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="32613"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="182_180815152800_196035_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="depositAuthorizationTime" val="493216184755023012"></param><param key="sumCurrency" val="643"></param><param key="cdd_pan_mask" val="546944|4305"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="182_180815152800_196035_47861"></param><param key="yandexPaymentId" val="257003261791543"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313836383030313236315f37663466363030313036366263396337653162356537326666333337633838373933393863643538"></param><param key="cdd_auth_code" val="370671"></param><param key="yandexuid" val="1031345851430989901"></param><param key="cps_changeSum" val="false"></param><param key="btnPay" val="Pay"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-08-18 19:29:45] Request: Array
+(
+    [shopSumCurrencyPaycash] => 643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1001
+    [orderNumber] => 182
+    [orderSumAmount] => 1.00
+    [orderSumCurrencyPaycash] => 643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 410013401128218
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T15:29:45.058+03:00
+    [orderCreatedDatetime] => 2015-08-18T15:29:44.911+03:00
+    [invoiceId] => 2000275089687
+    [shopId] => 47861
+    [shopSumAmount] => 0.96
+    [shopSumBankPaycash] => 1001
+)
+
+[2015-08-18 19:29:45] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-08-18T19:29:45.000+07:00" code="0" message="Заказ успешно оплачен" invoiceId="2000275089687" shopId="47861"/>
+[2015-08-18 19:29:46] Start paymentAviso
+[2015-08-18 19:29:46] Security type PKCS7
+[2015-08-18 19:29:46] Row xml: <?xml version="1.0" encoding="UTF-8" ?><paymentAvisoRequest shopSumCurrencyPaycash="643" rebillingOn="false" orderSumBankPaycash="1001" orderNumber="182" orderSumAmount="1.00" orderSumCurrencyPaycash="643" shopArticleId="196035" paymentPayerCode="410013401128218" paymentDatetime="2015-08-18T15:29:45.598+03:00" customerNumber="" paymentType="AC" requestDatetime="2015-08-18T15:29:45.734+03:00" orderCreatedDatetime="2015-08-18T15:29:44.911+03:00" invoiceId="2000275089687" shopId="47861" shopSumAmount="0.96" shopSumBankPaycash="1001"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="0915"></param><param key="cdd_rrn" val="523017269223"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="external_id" val="deposit"></param><param key="ContractTemplateID" val="524282"></param><param key="uid" val=""></param><param key="depositNumber" val="a6c02aa425a6155dd3979dec33d7e63a44042ff3"></param><param key="nst_unilabel" val="1d653890-0009-5000-8000-00000069ed24"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="109.111.189.10"></param><param key="scid" val="32613"></param><param key="cps_region_id" val="65"></param><param key="merchant_order_id" val="182_180815152800_196035_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="depositAuthorizationTime" val="493216184755023012"></param><param key="sumCurrency" val="643"></param><param key="cdd_pan_mask" val="546944|4305"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="182_180815152800_196035_47861"></param><param key="yandexPaymentId" val="257003261791543"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313836383030313236315f37663466363030313036366263396337653162356537326666333337633838373933393863643538"></param><param key="cdd_auth_code" val="370671"></param><param key="yandexuid" val="1031345851430989901"></param><param key="cps_changeSum" val="false"></param><param key="btnPay" val="Pay"></param><param key="skr_env" val="desktop"></param></paymentAvisoRequest>
+[2015-08-18 19:29:46] Request: Array
+(
+    [shopSumCurrencyPaycash] => 643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1001
+    [orderNumber] => 182
+    [orderSumAmount] => 1.00
+    [orderSumCurrencyPaycash] => 643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 410013401128218
+    [paymentDatetime] => 2015-08-18T15:29:45.598+03:00
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-08-18T15:29:45.734+03:00
+    [orderCreatedDatetime] => 2015-08-18T15:29:44.911+03:00
+    [invoiceId] => 2000275089687
+    [shopId] => 47861
+    [shopSumAmount] => 0.96
+    [shopSumBankPaycash] => 1001
+)
+
+[2015-08-18 19:29:47] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-08-18T19:29:47.000+07:00" code="0"  invoiceId="2000275089687" shopId="47861"/>
+[2015-10-19 10:16:04] Start checkOrder
+[2015-10-19 10:16:04] Security type PKCS7
+[2015-10-19 10:16:04] Row xml: <?xml version="1.0" encoding="UTF-8" ?><checkOrderRequest shopSumCurrencyPaycash="643" rebillingOn="false" orderSumBankPaycash="1001" orderNumber="194" orderSumAmount="1665.00" orderSumCurrencyPaycash="643" shopArticleId="196035" paymentPayerCode="410012441870620" customerNumber="" paymentType="AC" requestDatetime="2015-10-19T06:16:03.986+03:00" orderCreatedDatetime="2015-10-19T06:16:03.578+03:00" invoiceId="2000301869219" shopId="47861" shopSumAmount="1606.72" shopSumBankPaycash="1001"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="1115"></param><param key="cdd_rrn" val="529217710655"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="external_id" val="deposit"></param><param key="ContractTemplateID" val="524282"></param><param key="uid" val=""></param><param key="depositNumber" val="16ec99609060600ec4496c03da1900f493e74894"></param><param key="nst_unilabel" val="1db67391-0009-5000-8000-0000027b0b3d"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="95.191.9.232"></param><param key="scid" val="32613"></param><param key="cps_region_id" val="67"></param><param key="merchant_order_id" val="194_191015061321_196035_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="643"></param><param key="cdd_pan_mask" val="427686|8237"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="194_191015061321_196035_47861"></param><param key="yandexPaymentId" val="257005005574593"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313939333630383133365f66626636363662393963326132333037666466656165306130346530666534643030353936313361"></param><param key="cdd_auth_code" val="530202"></param><param key="yandexuid" val="1775857951445221255"></param><param key="cps_changeSum" val="false"></param><param key="btnPay" val="Pay"></param><param key="skr_env" val="desktop"></param></checkOrderRequest>
+[2015-10-19 10:16:04] Request: Array
+(
+    [shopSumCurrencyPaycash] => 643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1001
+    [orderNumber] => 194
+    [orderSumAmount] => 1665.00
+    [orderSumCurrencyPaycash] => 643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 410012441870620
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-10-19T06:16:03.986+03:00
+    [orderCreatedDatetime] => 2015-10-19T06:16:03.578+03:00
+    [invoiceId] => 2000301869219
+    [shopId] => 47861
+    [shopSumAmount] => 1606.72
+    [shopSumBankPaycash] => 1001
+)
+
+[2015-10-19 10:16:04] Response: <?xml version="1.0" encoding="UTF-8"?><checkOrderResponse performedDatetime="2015-10-19T10:16:04.000+07:00" code="0" message="Заказ успешно оплачен" invoiceId="2000301869219" shopId="47861"/>
+[2015-10-19 10:16:05] Start paymentAviso
+[2015-10-19 10:16:05] Security type PKCS7
+[2015-10-19 10:16:05] Row xml: <?xml version="1.0" encoding="UTF-8" ?><paymentAvisoRequest shopSumCurrencyPaycash="643" rebillingOn="false" orderSumBankPaycash="1001" orderNumber="194" orderSumAmount="1665.00" orderSumCurrencyPaycash="643" shopArticleId="196035" paymentPayerCode="410012441870620" paymentDatetime="2015-10-19T06:16:04.687+03:00" customerNumber="" paymentType="AC" requestDatetime="2015-10-19T06:16:04.974+03:00" orderCreatedDatetime="2015-10-19T06:16:03.578+03:00" invoiceId="2000301869219" shopId="47861" shopSumAmount="1606.72" shopSumBankPaycash="1001"><param key="cps_eplDisable" val="true"></param><param key="cdd_exp_date" val="1115"></param><param key="cdd_rrn" val="529217710655"></param><param key="shopSuccessURL" val="http://bagwill.ru/payment/success"></param><param key="external_id" val="deposit"></param><param key="ContractTemplateID" val="524282"></param><param key="uid" val=""></param><param key="depositNumber" val="16ec99609060600ec4496c03da1900f493e74894"></param><param key="nst_unilabel" val="1db67391-0009-5000-8000-0000027b0b3d"></param><param key="SuccessTemplate" val="ym2xmlsuccess"></param><param key="cps_user_country_code" val="RU"></param><param key="cps_user_ip" val="95.191.9.232"></param><param key="scid" val="32613"></param><param key="cps_region_id" val="67"></param><param key="merchant_order_id" val="194_191015061321_196035_47861"></param><param key="cps-source" val="default"></param><param key="ErrorTemplate" val="ym2xmlerror"></param><param key="sumCurrency" val="643"></param><param key="cdd_pan_mask" val="427686|8237"></param><param key="shopFailURL" val="http://bagwill.ru/payment/fail"></param><param key="cdd_moi" val="194_191015061321_196035_47861"></param><param key="yandexPaymentId" val="257005005574593"></param><param key="cdd_eci" val="05"></param><param key="requestid" val="313939333630383133365f66626636363662393963326132333037666466656165306130346530666534643030353936313361"></param><param key="cdd_auth_code" val="530202"></param><param key="yandexuid" val="1775857951445221255"></param><param key="cps_changeSum" val="false"></param><param key="btnPay" val="Pay"></param><param key="skr_env" val="desktop"></param></paymentAvisoRequest>
+[2015-10-19 10:16:05] Request: Array
+(
+    [shopSumCurrencyPaycash] => 643
+    [rebillingOn] => false
+    [orderSumBankPaycash] => 1001
+    [orderNumber] => 194
+    [orderSumAmount] => 1665.00
+    [orderSumCurrencyPaycash] => 643
+    [shopArticleId] => 196035
+    [paymentPayerCode] => 410012441870620
+    [paymentDatetime] => 2015-10-19T06:16:04.687+03:00
+    [customerNumber] => 
+    [paymentType] => AC
+    [requestDatetime] => 2015-10-19T06:16:04.974+03:00
+    [orderCreatedDatetime] => 2015-10-19T06:16:03.578+03:00
+    [invoiceId] => 2000301869219
+    [shopId] => 47861
+    [shopSumAmount] => 1606.72
+    [shopSumBankPaycash] => 1001
+)
+
+[2015-10-19 10:16:06] Response: <?xml version="1.0" encoding="UTF-8"?><paymentAvisoResponse performedDatetime="2015-10-19T10:16:06.000+07:00" code="0"  invoiceId="2000301869219" shopId="47861"/>

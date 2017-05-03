@@ -1,0 +1,65 @@
+<?php
+
+defined('SYSPATH') or die('No direct script access.');
+
+$lang_array = array(
+    'text_add_new_cat' => 'Добавить новую категорию',
+    'text_add_new_cat2' => 'Добавление новой категории',
+    'text_edit_cat' => 'Редактирование категории ',
+    'text_group_cat' => 'Раздел:',
+    'text_parent_cat' => 'Родительская категория:',
+    'text_cat' => 'Категории товаров',
+    'text_cat_body' => 'Описание категории',
+    'text_cat_thead_name' => 'Наименование категории и вложеность',
+    'text_cat_thead_alias' => 'Путь (синоним)',
+    'text_thead_weight' => 'Вес (сортировка)',
+    'text_cat_thead_action' => 'Действия',
+    'text_page_thead_name' => 'Наименование страницы',
+    'text_page_thead_alias' => 'Путь (синоним)',
+    'text_page_thead_status' => 'Статус',
+    'text_page_thead_action' => 'Действия',
+    
+    'text_modul_email' => 'Шаблоны писем',
+    'text_edit_modul_email' => 'Редактирование шаблона ',
+    'text_email_thead_id' => 'Id шаблона',
+    'text_email_thead_title' => 'Наименование шаблона:',
+    'text_email_thead_action' => 'Действия',
+    'text_modul_email_body' => 'Код шаблона:',
+    'text_main' => 'Главная',
+    'text_add_new_content' => 'Добавить новую страницу',
+    'text_add_new_content2' => 'Добавление новой страницы',
+    'text_edit_content' => 'Редактирование страницы ',
+    'text_type' => 'Тип материала:',
+    'text_contents' => 'Страницы',
+    'text_teaser' => 'Анонс страницы',
+    'text_body' => 'Содержание страницы',
+    'text_name' => 'Наименование:',
+    'text_menu' => 'Наименование ссылки меню:',
+    'text_menu_description' => '<span style="color:#c7c7c7">! Если вам не нужен пункт меню на этот материал, оставте это поле пустым</span>',
+    'text_alias' => 'Адрес (url):',
+    'text_weight' => 'Сортировка:',
+    'text_status' => 'Опубликовано:',
+	'text_in_front' => 'Показать анонс на главной странице:',
+    'text_create' => 'Создать',
+    'text_auto_zapolnenie' => 'Автозаполнение',
+    'text_clone' => '<img src="/images/admin/add_page.png" title="Клонировать" />',
+    'text_edit' => '<img src="/images/admin/edit_page.png" title="Редактировать" />',
+    'text_delete_img' => '<img src="/images/admin/delete_page.png" title="Удалить" />',
+    'text_delete' => 'Удалить',
+    
+    
+    'text_all' => 'Все',
+    'text_save' => 'Применить',
+    'text_active' => 'active',
+    'text_inactive' => 'inactive',
+    'text_filter' => 'Фильтр',
+   
+    'text_delete_qwest' => 'Вы действительно хотите удалить ',
+    'text_nodelete' => 'Не удалять, вернуться назад',
+    'text_file_illustration' => 'Иллюстрации',
+    'text_file_upload' => 'Загрузить',
+    'text_file_noupload' => 'Отменить загрузку',
+    'text_file_delete' => 'Удалить',
+);
+
+View::set_global($lang_array);

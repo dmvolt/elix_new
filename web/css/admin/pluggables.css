@@ -1,0 +1,182 @@
+
+/*================================| primary webs_core styling - external |================================*/
+.btn_core, .btn_core:link, .btn_core:active, .btn_core:visited {
+    position:relative;
+	cursor: pointer;
+	padding: 0 10px;
+	white-space: nowrap !important;
+	border: 1px solid #d3d3d3;
+	font-weight: normal;
+	color: #555555;
+	display: -moz-inline-box; /* FF2 version of inline-block... */
+	display: inline-block;
+	font-family: "museo-sans-1", "museo-sans-2", sans-serif !important;
+	font-size: 12px;
+	border-radius: 7px;
+	text-decoration: none;
+	*vertical-align: top;
+}
+.btn_core:hover { 
+	text-decoration: none !important; 
+	border: 1px solid #999999;
+	color: #212121;
+}
+
+.btn_core_blue { background:#dadada url(../../images/buttons/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;}
+.btn_core_blue:hover { background:#8ad8ec url(../../images/buttons/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;}
+
+.btn_core_green { background:#dadada url(../../images/buttons/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;}
+.btn_core_green:hover { background:#8ad8ec url(../../images/buttons/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;}
+
+.btn_core_sm { font-size: 11px !important; }
+.btn_core_sm span { height: 20px !important; line-height: 20px !important; }
+.btn_core_md { font-size: 14px !important; }
+.btn_core_md span { height: 28px !important; line-height: 28px !important; }
+.btn_core_lg { font-size: 18px !important; }
+.btn_core_lg span { height: 36px !important; line-height: 35px !important; }
+
+/*.btn_core_sm:hover { background-position: left -91px !important; }
+.btn_core_sm:hover span { background-position: right -91px !important; }
+.btn_core_md:hover { background-position: left -115px !important; }
+.btn_core_md:hover span { background-position: right -115px !important; }
+.btn_core_lg:hover { background-position: left -146px !important; }
+.btn_core_lg:hover span { background-position: right -146px !important; }*/
+
+/*------------------------| CSS Version of external buttons |-------------------*/
+.btn_ext, .btn_ext:link, .btn_ext:active, .btn_ext:visited {
+	font-family: "museo-sans-1", "museo-sans-2", sans-serif;
+	font-weight: normal;
+	color: white;
+	text-align: center;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	cursor: pointer;
+	*display: inline;
+	*zoom: 1;
+}
+
+.btn_ext_sm {
+	font-size: 14px;
+	height: 20px;
+	line-height: 19px;
+	font-weight: normal;
+	-moz-border-radius: 2px !important;
+	-webkit-border-radius: 2px !important;
+	border-radius: 2px !important;
+	padding: 0 10px;
+	*padding: 0 3px;
+}
+.btn_ext_md {
+	font-size: 20px;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 23px;
+	*padding: 0 13px;
+}
+.btn_ext_lg {
+	height: 48px;
+	line-height: 48px;
+	font-weight: 900;
+	font-size: 31px;
+	padding: 0 23px;
+}
+
+.btn_ext_blue {
+	background-color: #008FD5;
+	-moz-box-shadow: inset 0 1px 2px #51b8e4;
+	-webkit-box-shadow: inset 0 1px 2px #51b8e4;
+	box-shadow: inset 0 1px 2px #51b8e4;
+	text-shadow: #014875 0px 1px 1px;
+	border: 1px solid #164758;
+}
+.btn_ext_blue:hover {
+	background: rgb(0,151,230); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(0,143,213,1) 0%, rgba(0,151,230,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,143,213,1)), color-stop(100%,rgba(0,151,230,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(0,143,213,1) 0%,rgba(0,151,230,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(0,143,213,1) 0%,rgba(0,151,230,1) 100%); /* Opera11.10+ */
+	/* background: -ms-linear-gradient(top, rgba(0,143,213,1) 0%,rgba(0,151,230,1) 100%); /* IE10+ 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008fd5', endColorstr='#0097e6',GradientType=0 );  IE6-9 */
+	background: linear-gradient(top, rgba(0,143,213,1) 0%,rgba(0,151,230,1) 100%); /* W3C */
+	-webkit-box-shadow: inset 0 1px 2px #51b8e4;
+}
+
+.btn_ext_green {
+	background-color: #86c300;
+	-moz-box-shadow: inset 0 1px 2px #e2f0bc;
+	-webkit-box-shadow: inset 0 1px 2px #e2f0bc;
+	box-shadow: inset 0 1px 2px #e2f0bc;
+	text-shadow: #014875 0px 1px 1px;
+	border: 1px solid #64792a;
+}
+.btn_ext_green:hover {
+	background: rgb(139,216,0); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(134,195,0,1) 0%, rgba(139,216,0,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(134,195,0,1)), color-stop(100%,rgba(139,216,0,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(134,195,0,1) 0%,rgba(139,216,0,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(134,195,0,1) 0%,rgba(139,216,0,1) 100%); /* Opera11.10+ */
+	/* background: -ms-linear-gradient(top, rgba(134,195,0,1) 0%,rgba(139,216,0,1) 100%); /* IE10+ 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#86c300', endColorstr='#8bd800',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, rgba(134,195,0,1) 0%,rgba(139,216,0,1) 100%); /* W3C */
+}
+
+
+
+/*================================| webs_button styling - internal |================================*/
+.webs_button, .webs_button:link, .webs_button:active, .webs_button:visited,
+.webs_button_small, .webs_button_small:link, .webs_button_small:active, .webs_button_small:visited {
+	white-space: nowrap !important;
+    color: #fff !important;
+    font-weight: bold !important;
+	display: -moz-inline-box; /* FF2 version of inline-block... */
+	display: inline-block;
+    width: auto !important;
+    font-family: "museo-sans-1", "museo-sans-2", "arial", sans-serif !important;
+    font-size: 11px !important;
+    margin: 0 6px 0 0px !important;
+    text-decoration: none !important;
+	vertical-align: middle !important;
+	cursor: pointer !important;
+	padding: 5px 14px 4px;
+    background-color: #999484;
+    border: 1px solid #fff !important;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+	box-shadow: 0 0 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.3);
+}
+
+input.webs_button { padding: 3px 14px !important; }
+.webs_button_small { padding: 0 13px !important; } 
+
+.webs_button:hover {
+	box-shadow: 0 0 2px rgba(0,0,0,.6);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,.6);
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.6);
+}
+.webs_cancel, .webs_cancel:link, .webs_cancel:active, .webs_cancel:visited, .webs_cancel:hover { color: #fff !important; }
+.webs_button .fw-end { display: none; /* Legacy... -- Ryan */ }
+
+.webs_button_icon {
+	padding: 3px 0 0 25px;
+	background-position: 0 1px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+.webs_button .edit { background-image: url('../../images/pencil.png'); }
+.webs_button .add { background-image: url('../../images/add.png'); }
+.webs_button .delete { background-image: url('../../images/delete.png'); }   
+
+.webs_button_blue { background-color: #0370a8 !important;}
+.webs_button_green { background-color: #738b2f !important;}
+.webs_button_red { background-color: #b43e3e !important;}
+
+/* IE6 compat... */
+
+* html .webs_button .edit { background-image: url('../../images/edit_site.gif'); }
+* html .webs_button .delete { background-image: url('../../images/delete_page.gif'); }
+* html .webs_button .add { background-image: url('../../images/add.gif'); }
