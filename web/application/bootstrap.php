@@ -13,8 +13,8 @@ if (is_file(APPPATH . 'classes/kohana' . EXT)) {
 
 define('FULLURL', Kohana::getFullUrl());  // Полный путь включая http:// ..... и т.д.
 define('PARENT_FULLURL', FULLURL);  // Полный путь родительского домена включая http:// ..... и т.д.
-define('SCHEME', Kohana::getScheme());  // Полный путь включая http:// ..... и т.д.
-define('HOST', Kohana::getHost());  // Полный путь включая http:// ..... и т.д.
+define('SCHEME', Kohana::getScheme());
+define('HOST', Kohana::getHost());
 define('SUBDOMEN', 'nsk');  // Например omsk. ... .com
 define('PARENT_HOST', HOST);  // Родительский домен
 

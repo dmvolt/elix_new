@@ -12,11 +12,11 @@ if (is_file(APPPATH . 'classes/kohana' . EXT)) {
 }
 
 define('FULLURL', Kohana::getFullUrl());  // Полный путь включая http:// ..... и т.д.
-define('PARENT_FULLURL', 'http://elixdev.ru');  // Полный путь родительского домена включая http:// ..... и т.д.
-define('SCHEME', Kohana::getScheme());  // Полный путь включая http:// ..... и т.д.
-define('HOST', Kohana::getHost());  // Полный путь включая http:// ..... и т.д.
+define('PARENT_FULLURL', 'http://newelix.loc');  // Полный путь родительского домена включая http:// ..... и т.д.
+define('SCHEME', Kohana::getScheme());
+define('HOST', Kohana::getHost()); 
 define('SUBDOMEN', Kohana::getSubdomen());  // Например omsk. ... .com
-define('PARENT_HOST', 'elixdev.ru');  // Родительский домен
+define('PARENT_HOST', 'newelix.loc');  // Родительский домен
 
 /**
  * Set the default time zone.

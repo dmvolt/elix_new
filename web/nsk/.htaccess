@@ -22,5 +22,5 @@ RewriteRule .* index.php [L]
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-RewriteCond %{HTTP_HOST} nsk.elixdev.ru
-RewriteRule (.*) http://elixdev.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} nsk.newelix.loc
+RewriteRule (.*) http://newelix.loc/$1 [R=301,L]
