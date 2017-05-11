@@ -16,6 +16,8 @@ class Controller_Actions extends Controller_Template {
 
         $category_info = $categories_obj->getCategory(2, SUBDOMEN);
 		
+		$this->page_class = 'action';
+		
         $one_action = $actions_obj->get_content_to_cat($category_info[0]['id'], $alias); // Создание экземпляра объекта модели с выборкой из метода
 		
 		if($one_action){
@@ -99,6 +101,8 @@ class Controller_Actions extends Controller_Template {
 				->bind('cat_url', $cat_url)
 				->bind('modulinfo', $modulinfo)
 				->bind('pagination', $pagination);
+				
+		$this->page_class = 'actions';
 		
 		$modulinfo = Modulinfo::get_block('actions', $category_info2[0]['id']);
 		if(!empty($modulinfo)){

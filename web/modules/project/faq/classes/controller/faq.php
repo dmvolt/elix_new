@@ -15,6 +15,8 @@ class Controller_Faq extends Controller_Template {
         $faq_obj = new Model_Faq();
         $article = $faq_obj->get_content($id);
 		
+		$this->page_class = 'question';
+		
 		if($article){
 		
 			$edit_interface = Liteedit::get_interface($article['id'], 'faq');
@@ -111,6 +113,8 @@ class Controller_Faq extends Controller_Template {
 				);
 			}
 		}
+		
+		$this->page_class = 'question';
 		
 		$content = View::factory('faq')
 					->bind('modulinfo', $modulinfo)

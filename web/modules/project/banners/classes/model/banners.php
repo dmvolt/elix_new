@@ -14,7 +14,7 @@ class Model_Banners {
 	
     public function add($data = array()) {
 	
-        $data = Arr::extract($data, array('title', 'display_pages', 'display_all', 'status'));
+        $data = Arr::extract($data, array('type_id', 'title', 'display_pages', 'display_all', 'status'));
         $vData = $data;
         $validation = Validation::factory($vData);
         $validation->rule('title', 'not_empty');
@@ -26,9 +26,10 @@ class Model_Banners {
             return FALSE;
         }
 		
-        $result = DB::query(Database::INSERT, 'INSERT INTO ' . $this->tableName . ' (title, display_pages, display_all, status) VALUES (:title, :display_pages, :display_all, :status)')
+        $result = DB::query(Database::INSERT, 'INSERT INTO ' . $this->tableName . ' (type_id, title, display_pages, display_all, status) VALUES (:type_id, :title, :display_pages, :display_all, :status)')
                 ->parameters(array(
                     ':title' => Security::xss_clean($data['title']),
+					':type_id' => $data['type_id'],
                     ':display_pages' => $data['display_pages'],
                     ':display_all' => Security::xss_clean($data['display_all']),
                     ':status' => Security::xss_clean($data['status'])
@@ -44,7 +45,7 @@ class Model_Banners {
 	
     public function edit($Id, $data = array()) {
 	
-        $data = Arr::extract($data, array('title', 'display_pages', 'display_all', 'status'));
+        $data = Arr::extract($data, array('type_id', 'title', 'display_pages', 'display_all', 'status'));
         $vData = $data;
         $validation = Validation::factory($vData);
         $validation->rule('title', 'not_empty');
@@ -56,9 +57,10 @@ class Model_Banners {
             return FALSE;
         }
 		
-        DB::query(Database::UPDATE, 'UPDATE ' . $this->tableName . ' SET `title` = :title, `display_pages` = :display_pages, `display_all` = :display_all, `status` = :status WHERE `id` = :id')
+        DB::query(Database::UPDATE, 'UPDATE ' . $this->tableName . ' SET `type_id` = :type_id, `title` = :title, `display_pages` = :display_pages, `display_all` = :display_all, `status` = :status WHERE `id` = :id')
                 ->parameters(array(
                     ':id' => $Id,
+					':type_id' => $data['type_id'],
                     ':title' => Security::xss_clean($data['title']),
                     ':display_pages' => $data['display_pages'],
                     ':display_all' => Security::xss_clean($data['display_all']),
@@ -162,6 +164,7 @@ class Model_Banners {
 			
 			$contents = array(
 				'id' => $result[0]['id'],
+				'type_id' => $result[0]['type_id'],
 				'title' => $result[0]['title'],		
 				'status' => $result[0]['status'],
 				'files' => $files,

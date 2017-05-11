@@ -1,34 +1,50 @@
-<main class="main main_col">
-	<section class="main_col__wide">
-		<?= Breadcrumbs::get_breadcrumbs(0, 'specials', false, $current_param_cat) ?>
-		<?php  if($specials): ?>
-				
-			<?php foreach($specials as $article): ?>
-				<a href="<?= Data::_('lang_uri').$cat_url.'/doctors/' . $article['alias'] ?>" class="img-gal img-gal_big"> <!-- img-popup img-gal img-gal_big -->
-					<img src="<?= Im::imagepath('preview2', $article['thumb']) ?>" alt=""> <!-- 350 X 400 -->
-					<div class="img-gal__text"><b><?= $article['descriptions'][Data::_('lang_id')]['title'] ?></b> <br> <?= $article['descriptions'][Data::_('lang_id')]['teaser'] ?></div>
-				</a>
-			<?php endforeach; ?> 
-			
-			<?= Infoblock::get_page_block(Request::detect_uri()) ?>
-				
-		<?php else: ?>
-			<article>	
-				<h2><?= $text_page_not_found ?></h2>
-			</article>	   
-		<?php endif; ?>
-	</section>
-	<aside class="main_col__right hide-1200">
-		<div class="sticker">
-			<div class="main_col__soc">
-				<h2>Мы в соцсетях:</h2>
-				<div class="flamp-widget">
-					<a class="flamp-widget" href="http://novosibirsk.flamp.ru/firm/elix_centr_ehpilyacii-141266769558749"  data-flamp-widget-type="medium" data-flamp-widget-color="green" data-flamp-widget-id="141266769558749" data-flamp-widget-width="100%">Отзывы о нас на Флампе</a><script>!function(d,s){var js,fjs=d.getElementsByTagName(s)[0];js=d.createElement(s);js.async=1;js.src="http://widget.flamp.ru/loader.js";fjs.parentNode.insertBefore(js,fjs);}(document,"script");</script>
-				</div>
-				<!-- VK Widget --> 
-				<?= Text::vk_widget() ?>
-			</div>
-		</div>
-	</aside>
-</main>
+<div class="flex">
+	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
+		<!-- block breadcrumbs start -->
+		<?= Breadcrumbs::get_breadcrumbs(0, 'specials', false, $current_param_cat) ?>
+		<!-- block breadcrumbs end -->
+
+		<h1><?= $page_title ?></h1>
+		
+		<div class="flex">
+			<?php  if($specials): ?>
+					
+				<?php foreach($specials as $article): ?>
+					<div class="flex__item flex__item--33 flex__item--bp-980--50">
+						<!-- block person start -->
+						<div class="photo">
+							<a href="<?= Data::_('lang_uri').$cat_url.'/doctors/' . $article['alias'] ?>" class="photo__figure">
+								<?php if($article['thumb']): ?>
+									<img src="<?= Im::imagepath('250x200', $article['thumb']) ?>">
+								<?php endif; ?>
+							</a>
+							<div class="photo__name"><?= $article['descriptions'][Data::_('lang_id')]['title'] ?></div>
+							<div class="photo__info text-small"><?= $article['descriptions'][Data::_('lang_id')]['teaser'] ?></div>
+						</div>
+						<!-- block person end -->
+					</div>
+				<?php endforeach; ?> 
+				
+				<?= Infoblock::get_page_block(Request::detect_uri()) ?>
+					
+			<?php else: ?>
+				<article>	
+					<h2><?= $text_page_not_found ?></h2>
+				</article>	   
+			<?php endif; ?>
+		</div>
+
+		<?= Articles::get_block($current_param_cat, 9) ?>
+	</div>
+
+	<aside class="flex__item flex__item--33 flex__item--bp-720--100 main__right">
+		<!-- block widgets start -->
+		<div class="info info--widgets pos-sticky">
+			<?= Banners::get_right_block2($current_param_cat, 5) ?>
+		</div>
+		<!-- block widgets end -->
+		<!-- VK Widget --> 
+		<?//= Text::vk_widget() ?>
+	</aside>
+</div>

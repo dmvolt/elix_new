@@ -14,6 +14,15 @@
         </div>
 		
 		<div class="form_item">
+			<label for="type_id">Тип баннера</label></br>
+			<select name="type_id" style="width:200px;">
+				<?php foreach ($banner_types as $typeId => $typeName): ?>
+					<option value="<?= $typeId ?>"<?php if($typeId == $content['type_id']):?> selected<?php endif; ?>><?= $typeName ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+		
+		<div class="form_item">
 			<label for="categoryId1">Город</label></br>
 			<?= $categories_form2 ?>
 		</div>

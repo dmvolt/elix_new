@@ -15,6 +15,8 @@ class Controller_Photos extends Controller_Template {
         $photos_obj = new Model_Photos();
         $article = $photos_obj->get_content($alias);
 		
+		$this->page_class = 'photo';
+		
 		if($article){
 		
 			$edit_interface = Liteedit::get_interface($article['id'], 'photos');
@@ -58,6 +60,8 @@ class Controller_Photos extends Controller_Template {
         $categories_obj = new Model_Categories();
 		
 		$cat = $this->current_param_cat;
+		
+		$this->page_class = 'photo';
 		
 		$filter_query = '';
 		$inner_join = '';

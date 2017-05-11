@@ -1,64 +1,120 @@
-<main class="main main_col">
-	<section class="main_col__wide">
-	
+<div class="flex">
+	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
+		<!-- block breadcrumbs start -->
 		<?= Breadcrumbs::get_breadcrumbs($service['id'], 'services', $cat2, $current_param_cat) ?>
-	
-		<?php if($service): ?>
-			<article class="article">
+		<!-- block breadcrumbs end -->
 
+		<?php if($service): ?>
+			<!-- block article start -->
+			<article class="article">
 				<?= $edit_interface ?>
-				<div id="services_content_<?= $service['id'] ?>"><?=$service['descriptions'][Data::_('lang_id')]['body'] ?></div>
+				
+				<h1><?=$service['descriptions'][Data::_('lang_id')]['title'] ?></h1>
+				
+				<?=$service['descriptions'][Data::_('lang_id')]['body'] ?>
+				
 				<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 				<div class="yashare-auto-init" data-yasharel10n="ru" data-yasharetype="button" data-yasharequickservices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir" <="" p="">
 					<p>&gt;</p>
 				</div>
 			</article>
-			
+			<!-- block article end -->
+
 			<?php if($partners): ?>
-				<h2 class="header-line">Салоны, в которых есть данная услуга</h2>
-				<?php foreach($partners as $item): ?>
-					<?php if($item): ?>
-						<div class="filial">
-							<h2 class="filial__header"><a href="<?= Data::_('lang_uri') . '/contacts/' . $item['alias'] ?>"><?= $item['descriptions'][Data::_('lang_id')]['title'] ?></a></h2>
-							<div class="filial__content">
-								<div class="filial__map" style="width:100%"><?= $item['map'] ?></div>
-								<div class="filial__text">
-									<div class="filial__icon filial__icon_adr"><?= $item['descriptions'][Data::_('lang_id')]['teaser'] ?></div>
-									
-									<?php if(!empty($item['phones']) AND !empty($item['phones'][0])): ?>
-										<div class="filial__icon filial__icon_tel">
-											<?php foreach($item['phones'] as $phone): ?>
-												<a href="tel:<?= preg_replace('~[^+0-9]+~','', trim($phone)) ?>"><?= trim($phone) ?></a>
-											<?php endforeach; ?>
-										</div>
-									<?php endif; ?>
-									<?php if(!empty($item['email'])): ?>
-										<div class="filial__icon filial__icon_mail"><a href="mailto:<?= $item['email'] ?>"><?= $item['email'] ?></a></div>
-									<?php endif; ?>
-								</div>
-							</div>
-						</div>
-					<?php endif; ?>
-				<?php endforeach; ?>
+				<article class="article article--adr">
+					<h2>Адреса салонов где оказывают данную услугу</h2>
+					<?php foreach($partners as $item): ?>
+						<?php if($item): ?>
+							<h4><a href="<?= Data::_('lang_uri') . '/contacts/' . $item['alias'] ?>"><?= $item['descriptions'][Data::_('lang_id')]['title'] ?> <?//= $item['descriptions'][Data::_('lang_id')]['teaser'] ?></a></h4>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</article>
 			<?php endif; ?>
-			
 		<?php else: ?>
 			<h2 class="title"><?= $text_page_not_found ?></h2>
 		<?php endif; ?>
-	</section>
-	<aside class="main_col__right hide-1200">
-		<?= Banners::get_block($current_param_cat, 5) ?>
-		<?= Articles::get_right_block($current_param_cat, 3) ?>
-		<?//= Sertifications::get_right_block($current_param_cat, 1) ?>
-		
-		<div class="main_col__soc">
-			<h2>Мы в соцсетях:</h2>
-			<div class="flamp-widget">
-				<a class="flamp-widget" href="http://novosibirsk.flamp.ru/firm/elix_centr_ehpilyacii-141266769558749"  data-flamp-widget-type="medium" data-flamp-widget-color="green" data-flamp-widget-id="141266769558749" data-flamp-widget-width="100%">Отзывы о нас на Флампе</a><script>!function(d,s){var js,fjs=d.getElementsByTagName(s)[0];js=d.createElement(s);js.async=1;js.src="http://widget.flamp.ru/loader.js";fjs.parentNode.insertBefore(js,fjs);}(document,"script");</script>
-			</div>
-			
-			<!-- VK Widget --> 
-			<?= Text::vk_widget() ?>
+	</div>
+
+	<aside class="flex__item flex__item--33 flex__item--bp-720--100 main__right">
+		<!-- block info start -->
+		<div class="info pos-sticky">
+			<?= Banners::get_right_block1($current_param_cat, 5) ?>
 		</div>
+		<!-- block info end -->
 	</aside>
-</main>
+</div>
+
+<div class="flex">
+	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center main__grad">
+
+		<!-- block swiper-carousel start -->
+		<div class="swiper swiper--carousel">
+			<div class="swiper-container js-swiper-carousel">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+
+						<!-- block photo start -->
+						<div class="photo">
+							<a href="img/border.png" class="photo__figure js-popup-image"><img data-src="holder.js/250x200?auto=yes&theme=social"></a>
+						</div>
+						<!-- block photo end -->
+
+					</div>
+
+					<div class="swiper-slide">
+
+						<!-- block photo start -->
+						<div class="photo">
+							<a href="img/border.png" class="photo__figure js-popup-image"><img data-src="holder.js/250x200?auto=yes&theme=social"></a>
+						</div>
+						<!-- block photo end -->
+
+					</div>
+
+					<div class="swiper-slide">
+
+						<!-- block photo start -->
+						<div class="photo">
+							<a href="img/border.png" class="photo__figure js-popup-image"><img data-src="holder.js/250x200?auto=yes&theme=social"></a>
+						</div>
+						<!-- block photo end -->
+
+					</div>
+
+					<div class="swiper-slide">
+
+						<!-- block photo start -->
+						<div class="photo">
+							<a href="img/border.png" class="photo__figure js-popup-image"><img data-src="holder.js/250x200?auto=yes&theme=social"></a>
+						</div>
+						<!-- block photo end -->
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="swiper-button-prev js-slider-prev"><img src="/images/arrow.svg" class="icon js-svg"></div>
+			<div class="swiper-button-next js-slider-next"><img src="/images/arrow.svg" class="icon js-svg"></div>
+		</div>
+		<!-- block swiper-slider end -->
+
+	</div>
+</div>
+
+<div class="flex">
+	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
+		<?= Articles::get_block($current_param_cat, 9) ?>
+	</div>
+
+	<aside class="flex__item flex__item--33 flex__item--bp-720--100 main__right">
+		<!-- block widgets start -->
+		<div class="info info--widgets pos-sticky">
+			<?= Banners::get_right_block2($current_param_cat, 5) ?>
+		</div>
+		<!-- block widgets end -->
+		<!-- VK Widget --> 
+		<?//= Text::vk_widget() ?>
+	</aside>
+</div>

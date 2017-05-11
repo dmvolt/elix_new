@@ -77,7 +77,7 @@ abstract class Controller_Template extends Kohana_Controller_Template {
         $this->template->styles = array(
 			PARENT_FULLURL . '/css/' . $this->template_directory . 'main',
 			PARENT_FULLURL . '/css/' . $this->template_directory . 'main2',
-			PARENT_FULLURL . '/css/redactor',
+			//PARENT_FULLURL . '/css/redactor',
 		);
 		
         $this->template->scripts1 = array(
@@ -85,34 +85,29 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 		);
 		
 		$this->template->scripts2 = array(
-            PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.min',
+			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/holder.min',
+			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.min',
+			
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'jquery.maskedinput.min',
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'jquery.validate.min',
-			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.parallaxify.min',
-			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.scrollNav.min',
+			
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/swiper.jquery.min',
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.magnific-popup.min',
-			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.sticky',
-			
+			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/slideout.min',
+			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/jquery.lavalamp',
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/snap.svg-min',
-			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/svgicons-config',
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/svgicons',
-			
+			PARENT_FULLURL . '/js/' . $this->template_directory . 'vendor/svgicons-config',
 			PARENT_FULLURL . '/js/' . $this->template_directory . 'main',
 		);
+		
+		$this->template->menu = Menu::getmenu(1);
+		$this->template->menu_mobile = Menu::getmenu(2, '-mobile');
 
-        $this->template->menu_left = Menu::getmenu(1, '-left');
-		$this->template->menu_right = Menu::getmenu(2, '-right');
-		
-		$this->template->menu_left_mobile = Menu::getmenu(1, '-left-mobile');
-		$this->template->menu_right_mobile = Menu::getmenu(2, '-right-mobile');
-		
 		$this->template->menu_social = Menu::getmenu(3, '-social');
 		$this->template->menu_social_mobile = Menu::getmenu(3, '-social-mobile');
 		
-		$this->template->menu_category_parent = Menu::getmenu(4, '-category-parent');
-		$this->template->menu_category_childs = Menu::getmenu(4, '-category-childs');
-		$this->template->menu_category_childs2 = Menu::getmenu(4, '-category-childs2');
+		$this->template->menu_category = Menu::getmenu(4, '-category');
 
         $this->template->login_block = Model_Auth::loginform();
         $this->template->feedback_block = Feedback::contact_form();

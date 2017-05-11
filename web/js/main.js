@@ -1,32 +1,11 @@
 $(function() {
 
-	// initialize svg animation icons
-	// [].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
-	// 	var svgicon = new svgIcon( el, svgIconConfig );
-	// } );
-
-	var iconMenu = new svgIcon( document.querySelector('.si-icon-hamburger-cross'), svgIconConfig);
-
-	$('.js-menu-button').click(function(){
-		$('#menu').toggleClass('active');
-		iconMenu.toggle (true);
-	});
-
-	$('body').bind( 'touchstart click', function(e){
-		if (e.target.id != 'menu' && !$('#menu').find(e.target).length) {
-			$("#menu").removeClass('active');
-			if (iconMenu.toggled) {
-				iconMenu.toggle (true);
-			}
-		}
-	});
-
 	// Replace all SVG images with inline SVG
 	$('.js-svg').each(function(){
 		var $img = $(this);
 		var imgID = $img.attr('id');
 		var imgClass = $img.attr('class');
-		var imgURL = $img.attr('data');
+		var imgURL = $img.attr('src');
 
 		$.get(imgURL, function(data) {
 			var $svg = $(data).find('svg');
@@ -34,93 +13,121 @@ $(function() {
 				$svg = $svg.attr('id', imgID);
 			}
 			if (typeof imgClass !== 'undefined') {
-				$svg = $svg.attr('class', imgClass+' replaced-svg');
+				$svg = $svg.attr('class', imgClass+' js-svg--replaced');
 			}
 			$svg = $svg.removeAttr('xmlns:a');
 			$img.replaceWith($svg);
 		});
 	});
 
-	var sticker = $("#js-sticker").sticky({topSpacing:0});
+	//ripple button effect
+	$('.js-ripple').on('click', function (event) {
+		// event.preventDefault();
 
-// swiper
-var sliderSwiper = new Swiper('.js-slider', {
-	pagination: '.swiper-slider__pagination',
-	// effect: 'fade',
-	autoplay: 5000,
-	paginationClickable: true,
-	simulateTouch: false
-});
+		var btnOffset = $(this).offset(),
+		xPos = event.pageX - btnOffset.left - 25,
+		yPos = event.pageY - btnOffset.top - 25,
+		$div = $('<div class="js-ripple__effect" style="top:' + yPos + 'px; left:' + xPos + 'px;"></div>');
 
-// parallax
-$('.js-parallax').parallaxify({
-	responsive: true,
-	positionProperty: 'transform',
-});
+		$div.appendTo($(this));
 
-// header menu
-// $('.js-tab').click(function(){
-// 	var $this = $(this);
-// 	var target = $this.attr('data-target');
-//
-// 	$('.js-tab, .js-menu, .js-page').removeClass('js-active');
-// 	$this.addClass('js-active');
-// 	$(target).addClass('js-active');
-// 	$('.js-icon').toggleClass('js-active');
-// 	$("html, body").animate({ scrollTop: 0 });
-// });
+		window.setTimeout(function(){
+			$div.remove();
+		}, 2000);
+	});
 
-// mobile menu
-// $('.js-mobile-menu').click(function(){
-// 	$('.header__nav-mobile').addClass('header__nav-mobile_active');
-// });
-//
-// $('.js-mobile-close').click(function(){
-// 	$('.header__nav-mobile').removeClass('header__nav-mobile_active');
-// });
+	// menu icon
+	var iconMenu = new svgIcon( document.querySelector('.si-icon-hamburger-cross'), svgIconConfig);
 
-// service dropdown position
-var serviceDropdown = function() {
-	$('.js-dropdown').each(function(){
+	$('.js-menu-button').click(function(){
+		$('#js-mobile-menu').toggleClass('active');
+		iconMenu.toggle(true);
+	});
+
+	$('body').bind( 'touchstart click', function(e){
+		if (e.target.id != 'menu' && !$('#js-mobile-menu').find(e.target).length) {
+			$("#js-mobile-menu").removeClass('active');
+			if (iconMenu.toggled) {
+				iconMenu.toggle (true);
+			}
+		}
+	});
+
+	// toggle
+	$('.js-toggle-button').click(function(e){
+		e.preventDefault();
 		var $this = $(this);
-		var top = $this.parent().outerHeight() + $this.parents('.service__item').position().top + 8;
-		var left = $this.parents('.service__item').position().left + 1;
-		var count = $this.children('.service__dropdown__li').index();
-		var width = $this.outerWidth();
-		var contWidth = $this.parents('.service').outerWidth();
+		var target = $this.attr('data-target');
+		var toggle = $('.js-toggle');
+		$('.js-toggle-button').removeClass('js-toggle-button--active');
+		$(this).addClass('js-toggle-button--active');
 
-		if (count > 10) {
-			$this.addClass('service__dropdown_double');
-			width = $this.width();
+		if ($(target).hasClass('js-toggle--active')) {
+			$(target).removeClass('js-toggle--active')
+			$(this).removeClass('js-toggle-button--active');
+		} else {
+			$(toggle).removeClass('js-toggle--active');
+			$(target).addClass('js-toggle--active');
 		}
+	});
 
-		if (left + width > contWidth) {
-			left = contWidth - width;
+	// lavalamp
+	$('#js-lava').lavalamp({
+		autoUpdate: true,
+		updateTime: 1000
+	});
+
+	// swiper
+	var swiper = new Swiper('.js-swiper', {
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		effect: 'fade',
+		autoplay: 5000,
+		loop: true,
+		simulateTouch: false
+	});
+
+	var swiperCarousel = new Swiper('.js-swiper-carousel', {
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		slidesPerView: 3,
+		spaceBetween: 30,
+		loop: true,
+
+		breakpoints: {
+			980: {
+			slidesPerView: 2,
+			spaceBetween: 20
+			}
 		}
+	});
 
-		$this.css('top', top + 'px');
-		$this.css('left', left + 'px');
-	})
-}
+	//popup
+	$('.js-popup-image').magnificPopup({
+		type:'image',
+		gallery:{
+			enabled:true
+		},
 
-$(window).load(function(){
-	serviceDropdown();
-})
+		image: {
+			markup: '<div class="mfp-figure">'+
+			'<div class="mfp-close"></div>'+
+			'<div class="mfp-img"></div>'+
+			'</div>'
+		}
+	});
 
-serviceDropdown();
+	$('.js-popup-inline').magnificPopup({
+		removalDelay: 500,
+		callbacks: {
+			beforeOpen: function() {
+				this.st.mainClass = this.st.el.attr('data-effect');
+			}
+		},
+		midClick: true
+	});
 
-// magnific-popup lightbox
-$('.img-popup').magnificPopup({
-	type:'image',
-	cursor: null,
-	gallery:{
-		enabled:true,
-		tPrev: 'Назад',
-		tNext: 'Далее',
-		tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
-	}
-});
-
+	// resize handler
 	var delay = (function(){
 		var timer = 0;
 		return function(callback, ms){
@@ -131,17 +138,8 @@ $('.img-popup').magnificPopup({
 
 	$(window).resize(function() {
 		delay(function(){
-			serviceDropdown();
-			// console.log('resized!');
-
-			if ($(window).height() < 730) {
-				sticker.unstick();
-			}
-
-			if ($(window).height() >= 730) {
-				sticker.sticky({topSpacing:0});
-			}
-		}, 200);
+			// console.log('resized');
+		}, 100);
 	});
 });
 

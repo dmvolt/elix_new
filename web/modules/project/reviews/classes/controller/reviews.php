@@ -15,6 +15,8 @@ class Controller_Reviews extends Controller_Template {
         $reviews_obj = new Model_Reviews();
         $article = $reviews_obj->get_content($id);
 		
+		$this->page_class = 'feedback';
+		
 		if($article){
 		
 			$edit_interface = Liteedit::get_interface($article['id'], 'reviews');
@@ -67,6 +69,7 @@ class Controller_Reviews extends Controller_Template {
 			}
 		}
 		$this->page_title = 'Отзывы';
+		$this->page_class = 'feedback';
 		
 		$modulinfo = Modulinfo::get_block('reviews', $catpages[0]['id']);
 		if(!empty($modulinfo)){

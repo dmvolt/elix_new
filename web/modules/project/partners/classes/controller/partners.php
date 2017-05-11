@@ -14,7 +14,7 @@ class Controller_Partners extends Controller_Template {
         $partners_obj = new Model_Partners();
         $article = $partners_obj->get_content($alias);
 		
-		$this->page_class = 'text-article';
+		$this->page_class = 'filial';
 		
 		if($article){
 		
@@ -56,6 +56,8 @@ class Controller_Partners extends Controller_Template {
 		if($partners AND count($partners) == 1){
 			Request::initial()->redirect('contacts/'.$partners[0]['alias']);
 		}
+		
+		$this->page_class = 'contacts';
 		
 		$content = View::factory($this->template_directory . 'contacts')
 					->bind('partners', $partners);

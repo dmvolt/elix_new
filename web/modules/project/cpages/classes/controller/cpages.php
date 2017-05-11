@@ -42,6 +42,8 @@ class Controller_Cpages extends Controller_Template {
 		
 		$contents = $cpages_obj->get_all(0, 0, 100, 'a.weight', $inner_join, $filter_query);
 		
+		$this->page_class = 'action';
+		
 		if(!empty($contents)){
 		
 			$page = $contents[0];

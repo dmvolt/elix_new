@@ -26,7 +26,7 @@ class Controller_Services extends Controller_Template {
         
         $service = $services_obj->get_content($alias);
 		
-		$this->page_class = 'text-service';
+		$this->page_class = 'service';
 		
 		if($service){
 		
@@ -143,6 +143,8 @@ class Controller_Services extends Controller_Template {
 		$result = Pagination::start($total);
 		$pagination = Pagination::navigation($result['page'], $total, $result['total_page'], $result['num']);
 		$contents = $services_obj->get_all(0, $result['start'], $result['num'], 'a.weight', $inner_join, $filter_query);
+		
+		$this->page_class = 'services';
 		
 		$content = View::factory($this->template_directory . 'services')
 					->bind('child_categories', $child_categories)

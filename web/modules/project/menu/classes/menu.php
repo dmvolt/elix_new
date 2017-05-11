@@ -36,7 +36,7 @@ class Menu {
 					'status' => $value['status'],
 					'module' => $value['module'],
 					'cat' => $cat,
-					'childs' => $childs,
+					'children' => $childs,
 				);
 			}
 		}

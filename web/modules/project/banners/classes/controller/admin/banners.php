@@ -21,6 +21,7 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
 		
 		$catid1 = Arr::get($_GET, 'cat1', null); // Получение параметра cat1 (Город) из адресной строки
 		$catid2 = Arr::get($_GET, 'cat2', null); // Получение параметра cat2 (Раздел) из адресной строки
+		$typeid = Arr::get($_GET, 'type', null); // Получение параметра type (Тип баннера) из адресной строки
 		
 		$cat_name = '';
 		$filter_query = '';
@@ -34,9 +35,12 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
 				->bind('cat_name', $cat_name)
                 ->bind('parent1', $catid1)
 				->bind('parent2', $catid2)
+				->bind('parent3', $typeid)
+				->bind('banner_types', $banner_types)
                 ->bind('group_cat', $group_cat);
 				
 		$group_cat = Kohana::$config->load('menu.group_cat');
+		$banner_types = Kohana::$config->load('banner.types');
 		
 		foreach ($group_cat as $group) { 
 			$result = $categories_obj->getCategories($group['dictionary_id'], 0, 2);
@@ -52,6 +56,15 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
 				}
 			}
         }
+		
+		if($typeid != null){
+			$filter_query .= ' AND b.type_id = '.$typeid.' ';		
+			
+			$parameters .= ($i)?'&type='.$typeid:'?type='.$typeid;
+			$i++;
+			
+			$cat_name .= 'Баннеры - '.$banner_types[$typeid];
+		}
 		
 		if($catid1 AND !empty($catid1)){
 			$filter_query .= ' AND (cc1.category_id = '.$catid1.' AND cc1.module = "banners") ';		
@@ -83,10 +96,12 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
         $this->session->set('content_redirect', $_SERVER['REQUEST_URI']);
         
 		$banners_obj = new Model_Banners();
+		$banner_types = Kohana::$config->load('banner.types');
 
         if (isset($_POST['title'])) {
             $add_data = array(
                 'title' => Arr::get($_POST, 'title', ''),
+				'type_id' => Arr::get($_POST, 'type_id', 0),
                 'display_pages' => Arr::get($_POST, 'display_pages', ''),
                 'display_all' => Arr::get($_POST, 'display_all', 1),
                 'status' => Arr::get($_POST, 'status', 0),
@@ -103,7 +118,7 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
         $data['files_form'] = Controller_Admin_Files::get_fields(array(), 'banners');
 		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'banners', 1, false, 'multiple');
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'banners', 2, false, 'multiple');
-        $this->template->content = View::factory('admin/banners-add', $data);
+        $this->template->content = View::factory('admin/banners-add', $data)->bind('banner_types', $banner_types);
     }
 
     public function action_edit() {
@@ -111,6 +126,7 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
         $banners_obj = new Model_Banners();
       
         $data['content'] = $banners_obj->get_content($Id);
+		$banner_types = Kohana::$config->load('banner.types');
 
         $this->session->delete('content_redirect');
         $this->session->set('content_redirect', $_SERVER['REQUEST_URI']);
@@ -118,6 +134,7 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
         if (isset($_POST['title'])) {
             $edit_data = array(
                 'title' => Arr::get($_POST, 'title', ''),
+				'type_id' => Arr::get($_POST, 'type_id', 0),
                 'display_pages' => Arr::get($_POST, 'display_pages', ''),
                 'display_all' => Arr::get($_POST, 'display_all', 1),
                 'status' => Arr::get($_POST, 'status', 0),
@@ -134,7 +151,7 @@ class Controller_Admin_Banners extends Controller_Admin_Template {
         $data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'banners');
 		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'banners', 1, false, 'multiple');
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'banners', 2, false, 'multiple');
-        $this->template->content = View::factory('admin/banners-edit', $data);
+        $this->template->content = View::factory('admin/banners-edit', $data)->bind('banner_types', $banner_types);
     }
 
     public function action_delete() {

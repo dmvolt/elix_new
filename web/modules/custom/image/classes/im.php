@@ -57,6 +57,106 @@ class Im {
 						}
 						$im->save($image_versions['preview2']['upload_dir'] . $filename, $image_versions['preview2']['jpeg_quality']);
 					}
+				} elseif($folder == '3000x400'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/3000x400/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						$im->resize($image_versions['3000x400']['max_width'], $image_versions['3000x400']['max_height'], Image::WIDTH);
+						$im->crop($image_versions['3000x400']['max_width'], $image_versions['3000x400']['max_height'], NULL, 0); /* Обрезать изображение до центр Х центр: */	
+						if(!file_exists($image_versions['3000x400']['upload_dir'])){
+							mkdir($image_versions['3000x400']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['3000x400']['upload_dir'] . $filename, $image_versions['3000x400']['jpeg_quality']);
+					}
+				} elseif($folder == '600x150'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/600x150/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						if ($im->width >= $im->height) {
+							$im->resize($image_versions['600x150']['max_width']+0, $image_versions['600x150']['max_height']+0, Image::HEIGHT);
+							$im->crop($image_versions['600x150']['max_width'], $image_versions['600x150']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						} else {
+							$im->resize($image_versions['600x150']['max_width']+0, $image_versions['600x150']['max_height']+0, Image::WIDTH);
+							$im->crop($image_versions['600x150']['max_width'], $image_versions['600x150']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						}
+						if(!file_exists($image_versions['600x150']['upload_dir'])){
+							mkdir($image_versions['600x150']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['600x150']['upload_dir'] . $filename, $image_versions['600x150']['jpeg_quality']);
+					}
+				} elseif($folder == '400x250'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/400x250/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						if ($im->width >= $im->height) {
+							$im->resize($image_versions['400x250']['max_width']+0, $image_versions['400x250']['max_height']+0, Image::HEIGHT);
+							$im->crop($image_versions['400x250']['max_width'], $image_versions['400x250']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						} else {
+							$im->resize($image_versions['400x250']['max_width']+0, $image_versions['400x250']['max_height']+0, Image::WIDTH);
+							$im->crop($image_versions['400x250']['max_width'], $image_versions['400x250']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						}
+						if(!file_exists($image_versions['400x250']['upload_dir'])){
+							mkdir($image_versions['400x250']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['400x250']['upload_dir'] . $filename, $image_versions['400x250']['jpeg_quality']);
+					}
+				} elseif($folder == '200x250'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/200x250/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						if ($im->width >= $im->height) {
+							$im->resize($image_versions['200x250']['max_width']+0, $image_versions['200x250']['max_height']+0, Image::HEIGHT);
+							$im->crop($image_versions['200x250']['max_width'], $image_versions['200x250']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						} else {
+							$im->resize($image_versions['200x250']['max_width']+0, $image_versions['200x250']['max_height']+0, Image::WIDTH);
+							$im->crop($image_versions['200x250']['max_width'], $image_versions['200x250']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						}
+						if(!file_exists($image_versions['200x250']['upload_dir'])){
+							mkdir($image_versions['200x250']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['200x250']['upload_dir'] . $filename, $image_versions['200x250']['jpeg_quality']);
+					}
+				} elseif($folder == '250x200'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/250x200/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						if ($im->width >= $im->height) {
+							$im->resize($image_versions['250x200']['max_width']+0, $image_versions['250x200']['max_height']+0, Image::HEIGHT);
+							$im->crop($image_versions['250x200']['max_width'], $image_versions['250x200']['max_height'], NULL, 0); /* Обрезать изображение до центр Х центр: */
+						} else {
+							$im->resize($image_versions['250x200']['max_width']+0, $image_versions['250x200']['max_height']+0, Image::WIDTH);
+							$im->crop($image_versions['250x200']['max_width'], $image_versions['250x200']['max_height'], NULL, 0); /* Обрезать изображение до центр Х центр: */
+						}
+						if(!file_exists($image_versions['250x200']['upload_dir'])){
+							mkdir($image_versions['250x200']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['250x200']['upload_dir'] . $filename, $image_versions['250x200']['jpeg_quality']);
+					}
+				} elseif($folder == '250x300'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/250x300/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						if ($im->width >= $im->height) {
+							$im->resize($image_versions['250x300']['max_width']+0, $image_versions['250x300']['max_height']+0, Image::HEIGHT);
+							$im->crop($image_versions['250x300']['max_width'], $image_versions['250x300']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						} else {
+							$im->resize($image_versions['250x300']['max_width']+0, $image_versions['250x300']['max_height']+0, Image::WIDTH);
+							$im->crop($image_versions['250x300']['max_width'], $image_versions['250x300']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						}
+						if(!file_exists($image_versions['250x300']['upload_dir'])){
+							mkdir($image_versions['250x300']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['250x300']['upload_dir'] . $filename, $image_versions['250x300']['jpeg_quality']);
+					}
+				} elseif($folder == '200x150'){
+					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/200x150/'.$filename)){
+						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);
+						if ($im->width >= $im->height) {
+							$im->resize($image_versions['200x150']['max_width']+0, $image_versions['200x150']['max_height']+0, Image::HEIGHT);
+							$im->crop($image_versions['200x150']['max_width'], $image_versions['200x150']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						} else {
+							$im->resize($image_versions['200x150']['max_width']+0, $image_versions['200x150']['max_height']+0, Image::WIDTH);
+							$im->crop($image_versions['200x150']['max_width'], $image_versions['200x150']['max_height'], NULL, NULL); /* Обрезать изображение до центр Х центр: */
+						}
+						if(!file_exists($image_versions['200x150']['upload_dir'])){
+							mkdir($image_versions['200x150']['upload_dir'], 0755);
+						}
+						$im->save($image_versions['200x150']['upload_dir'] . $filename, $image_versions['200x150']['jpeg_quality']);
+					}
 				} elseif($folder == 'preview4'){
 					if(file_exists(ALL_DOCROOT . 'files/'.$filename) AND !file_exists(ALL_DOCROOT . 'files/preview4/'.$filename)){
 						$im = Image::factory(ALL_DOCROOT . 'files/'.$filename);

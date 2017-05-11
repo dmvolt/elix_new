@@ -71,7 +71,7 @@ class Controller_Front extends Controller_Template {
                 ->bind('info', $info);
 				
         $this->page_title = 'Главная';
-        $this->page_class = 'front';
+        $this->page_class = 'index';
 		
 		/****************************** SEO ******************************/
 		$seo_obj = new Model_Seo();

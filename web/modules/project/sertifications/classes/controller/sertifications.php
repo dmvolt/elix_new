@@ -43,6 +43,8 @@ class Controller_Sertifications extends Controller_Template {
 		
 		$sertifications = $sertifications_obj->get_all(0, 0, 100, 's.weight', $inner_join, $filter_query);
 		
+		$this->page_class = 'sert';
+		
 		$content = View::factory($this->template_directory . 'sertifications')
 					->bind('cat_url', $cat_url)
 					->bind('payment_methods', $payment_methods)

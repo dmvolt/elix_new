@@ -4,6 +4,6 @@ return array(
     'title'       => '',
     'description' => '',
 	'slogan' => 'Добро пожаловать в систему управления сайтом ... ',
-	'logo' => '<a href="'.FULLURL.'" id="logo"><img src="/images/logo.png"></a>',
+	'logo' => '<a href="'.FULLURL.'" id="logo"><img src="/images/logo.svg"></a>',
 	'copyright' => ' '.date('Y').'г.'
 );

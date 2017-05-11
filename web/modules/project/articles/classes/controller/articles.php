@@ -15,7 +15,7 @@ class Controller_Articles extends Controller_Template {
         $articles_obj = new Model_Articles();
         $article = $articles_obj->get_content($alias);
 		
-		$this->page_class = '';
+		$this->page_class = 'action';
 		
 		if($article){
 		
@@ -106,6 +106,8 @@ class Controller_Articles extends Controller_Template {
 		$result = Pagination::start($total);
 		$pagination = Pagination::navigation($result['page'], $total, $result['total_page'], $result['num']);
 		$contents = $articles_obj->get_all(0, $result['start'], $result['num'], 'a.weight', $inner_join, $filter_query);
+		
+		$this->page_class = 'articles';
 		
 		$content = View::factory($this->template_directory . 'articles')
 					->bind('pagination', $pagination)

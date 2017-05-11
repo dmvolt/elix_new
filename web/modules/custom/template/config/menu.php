@@ -19,10 +19,10 @@ return array(
     ),
     'group_menu' => array(
         1 => array(
-            'name' => 'Главное левое меню',
+            'name' => 'Главное меню',
             'dictionary_id' => 1),
         2 => array(
-            'name' => 'Главное правое меню',
+            'name' => 'Главное мобильное меню',
             'dictionary_id' => 2),
 		4 => array(
             'name' => 'Меню категорий услуг',

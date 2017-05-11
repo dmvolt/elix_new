@@ -16,6 +16,8 @@ class Controller_Specials extends Controller_Template {
 		
         $article = $specials_obj->get_content($alias);
 		
+		$this->page_class = 'specialist';
+		
 		if($article){
 		
 			$edit_interface = Liteedit::get_interface($article['id'], 'specials');
@@ -87,6 +89,8 @@ class Controller_Specials extends Controller_Template {
 		}
 		
 		$specials = $specials_obj->get_all(0, 0, 100, 's.weight', $inner_join, $filter_query);
+		
+		$this->page_class = 'specialists';
 	
 		$content = View::factory($this->template_directory . 'specials')
 					->bind('cat_url', $cat_url)

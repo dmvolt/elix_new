@@ -90,6 +90,9 @@ function checkLanguage(langId, langIdent, langDir)
 		observeLinks: true,
 		convertVideoLinks: true,
 		convertImageLinks: true,
+		replaceDivs: false,
+		cleanSpaces: false,
+		paragraphize: false,
 		imageUpload: '/liteedit/load_image_in_text',
 		fileUpload: '/liteedit/load_file_in_text'
 	});
@@ -101,6 +104,9 @@ function checkLanguage(langId, langIdent, langDir)
 		observeLinks: true,
 		convertVideoLinks: true,
 		convertImageLinks: true,
+		replaceDivs: false,
+		cleanSpaces: false,
+		paragraphize: false,
 		imageUpload: '/liteedit/load_image_in_text',
 		fileUpload: '/liteedit/load_file_in_text'
 	});

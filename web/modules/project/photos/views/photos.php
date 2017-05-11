@@ -1,17 +1,29 @@
-<main class="main main_col">
-	<section class="main_col__wide">
-	
+<div class="flex">
+	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
+
+		<!-- block breadcrumbs start -->
 		<?= Breadcrumbs::get_breadcrumbs(0, 'photos', false, $current_param_cat) ?>
-	
+		<!-- block breadcrumbs end -->
+		
 		<?php  if($photos): ?>		
 			
 			<?php foreach($photos as $photo): ?>
 				<h2><a href="<?= Data::_('lang_uri') . '/photos/' . $photo['alias'] ?>"><?= $photo['descriptions'][Data::_('lang_id')]['title'] ?></a></h2>
 				
-				<?php  if($photo['images']): ?>		
-					<?php foreach($photo['images'] as $image): ?>
-						<a href="<?= Im::imagepath('colorbox', $image['file']->filepathname) ?>" class="img-popup img-gal"><img src="<?= Im::imagepath('photos', $image['file']->filepathname) ?>" alt=""></a>
-					<?php endforeach; ?> 
+				<?php  if($photo['images']): ?>	
+					<div class="flex">
+						<?php foreach($photo['images'] as $image): ?>
+						
+							<div class="flex__item flex__item--33 flex__item--bp-980--50">
+								<!-- block photo start -->
+								<div class="photo">
+									<a href="<?= Im::imagepath('colorbox', $image['file']->filepathname) ?>" class="photo__figure js-popup-image"><img src="<?= Im::imagepath('250x200', $image['file']->filepathname) ?>"></a>
+								</div>
+								<!-- block photo end -->
+							</div>
+			
+						<?php endforeach; ?> 
+					</div>
 				<?php endif; ?>
 			<?php endforeach; ?> 
 			
@@ -20,21 +32,17 @@
 		<?php else: ?>
 			<h2><?= $text_page_not_found ?></h2> 
 		<?php endif; ?>
-	</section>
-	<aside class="main_col__right hide-1200">
-		<?//= Banners::get_block($current_param_cat, 5) ?>
-		<?//= Articles::get_right_block($current_param_cat, 3) ?>
-		<?//= Sertifications::get_right_block($current_param_cat, 1) ?>
-		
-		<div class="sticker">
-			<div class="main_col__soc">
-				<h2>Мы в соцсетях:</h2>
-				<div class="flamp-widget">
-					<a class="flamp-widget" href="http://novosibirsk.flamp.ru/firm/elix_centr_ehpilyacii-141266769558749"  data-flamp-widget-type="medium" data-flamp-widget-color="green" data-flamp-widget-id="141266769558749" data-flamp-widget-width="100%">Отзывы о нас на Флампе</a><script>!function(d,s){var js,fjs=d.getElementsByTagName(s)[0];js=d.createElement(s);js.async=1;js.src="http://widget.flamp.ru/loader.js";fjs.parentNode.insertBefore(js,fjs);}(document,"script");</script>
-				</div>
-				<!-- VK Widget --> 
-				<?= Text::vk_widget() ?> 
-			</div>
+
+		<?= Articles::get_block($current_param_cat, 9) ?>
+	</div>
+
+	<aside class="flex__item flex__item--33 flex__item--bp-720--100 main__right">
+		<!-- block widgets start -->
+		<div class="info info--widgets pos-sticky">
+			<?= Banners::get_right_block2($current_param_cat, 5) ?>
 		</div>
+		<!-- block widgets end -->
+		<!-- VK Widget --> 
+		<?//= Text::vk_widget() ?>
 	</aside>
-</main>
+</div>

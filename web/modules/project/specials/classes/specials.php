@@ -3,7 +3,6 @@
 defined('SYSPATH') or die('No direct script access.');
 
 class Specials {
-
     public static function specials_block($num = 6) {
         $content = View::factory(Data::_('template_directory') . 'specials-block')
                 ->bind('specials', $specials);
@@ -13,7 +12,5 @@ class Specials {
 
         return $content;
     }
-
 }
-
 // Specials

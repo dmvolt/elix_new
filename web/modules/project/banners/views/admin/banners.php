@@ -8,6 +8,15 @@
 
 <form action="" method="get" name="form" id="form" style="float:left;">
     <div class="form_item">
+        <label for="type">Тип баннера</label></br>
+        <select name="type" style="width:200px;">
+			<option value=""> -- Все -- </option>
+            <?php foreach ($banner_types as $typeId => $typeName): ?>
+                <option value="<?= $typeId ?>"<?php if($typeId === Arr::get($_GET, 'type', null)):?> selected<?php endif; ?>><?= $typeName ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+	<div class="form_item">
         <label for="cat1">Город</label></br>
         <select name="cat1" style="width:200px;">
 			<option value=""> -- Все -- </option>

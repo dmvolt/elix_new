@@ -12,6 +12,15 @@
             <label for="title"><?= $text_name ?></label></br>
             <input type="text" name="title" class="text">
         </div>
+		
+		<div class="form_item">
+			<label for="type_id">Тип баннера</label></br>
+			<select name="type_id" style="width:200px;">
+				<?php foreach ($banner_types as $typeId => $typeName): ?>
+					<option value="<?= $typeId ?>"><?= $typeName ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
 
 		<div class="form_item">
 			<label for="categoryId1">Город</label></br>

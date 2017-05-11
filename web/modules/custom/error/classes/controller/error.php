@@ -18,7 +18,7 @@ class Controller_Error extends Controller_Template {
         }
 	
         $this->template->content = View::factory($status)->bind('message', $message);
-		$this->page_class = 'page-404';
+		$this->page_class = '404';
 		$this->page_title = 'Извините, страница не найдена';
         $this->response->status($status);
     }
