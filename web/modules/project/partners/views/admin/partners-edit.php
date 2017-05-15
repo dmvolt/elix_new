@@ -10,7 +10,7 @@
 	<ul>
 		<li><a href="#tabs-1">Основная информация</a></li>
 		<li><a href="#tabs-2">SEO</a></li>
-		<li><a href="#tabs-4">Город и раздел</a></li>
+		<li><a href="#tabs-4">Город</a></li>
 		<li><a href="#tabs-3">Иллюстрации и файлы</a></li>
 	</ul>
 	
@@ -98,7 +98,7 @@
 	
 	<div id="tabs-4">
 		<?= $categories_form2 ?>
-		<?= $categories_form1 ?>
+		<?//= $categories_form1 ?>
 	</div>
 	
 	<div id="tabs-3">

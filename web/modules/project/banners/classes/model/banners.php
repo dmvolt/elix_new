@@ -193,6 +193,24 @@ class Model_Banners {
         }
     }
 	
+	public function get_service_parent($id = '') {
+        $sql = "SELECT service_id FROM `contents_services` WHERE `content_id` = :id  AND `module` = :module";
+        $query = DB::query(Database::SELECT, $sql, FALSE)
+                ->parameters(array(
+                    ':id' => (int) $id, 
+                    ':module' => 'banners',
+                    ))
+                ->execute();
+        $result = $query->as_array();
+        if (count($result) > 0) {
+            foreach ($result as $item) {
+                $result2[$item['service_id']] = $item['service_id'];
+            } return $result2;
+        } else {
+            return FALSE;
+        }
+    }
+	
 	public function get_total_all($is_adminka = 0, $inner_join = '', $filter = '') {
 		
 		if ($is_adminka) {

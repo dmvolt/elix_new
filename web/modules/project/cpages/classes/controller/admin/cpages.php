@@ -127,7 +127,7 @@ class Controller_Admin_Cpages extends Controller_Admin_Template {
         }
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'cpages', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'cpages', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'cpages', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields(array(), 'cpages');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields(array(), 'cpages');		
@@ -180,7 +180,7 @@ class Controller_Admin_Cpages extends Controller_Admin_Template {
         $data['content'] = $cpages_obj->get_content($Id);
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'cpages', 1);	
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'cpages', 1);	
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'cpages', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'cpages');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields($data['content'], 'cpages');
@@ -191,13 +191,16 @@ class Controller_Admin_Cpages extends Controller_Admin_Template {
     }
 	
     public function action_delete() {
+		
         $Id = $this->request->param('id');
         $cpages_obj = new Model_Cpages();
 		$categories_obj = new Model_Categories();
 		$file_obj = new Model_File();
 		$seo_obj = new Model_Seo();
+		
         $this->session->delete('content_redirect');
         $this->session->set('content_redirect', $_SERVER['REQUEST_URI']);
+		
         if (isset($_POST['delete'])) {
             $result = $cpages_obj->delete($Id);
 			

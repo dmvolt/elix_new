@@ -10,7 +10,7 @@
 	<ul>
 		<li><a href="#tabs-1">Основная информация</a></li>
 		<li><a href="#tabs-2">SEO</a></li>
-		<li><a href="#tabs-6">Город и раздел</a></li>
+		<li><a href="#tabs-6">Город</a></li>
 		<li><a href="#tabs-4">Теги</a></li>
 		<li><a href="#tabs-5">Офисы</a></li>
 		<li><a href="#tabs-3">Иллюстрации</a></li>
@@ -20,6 +20,18 @@
 		<div class="form_item">
 			<label for="date"><?= $text_services_date ?></label></br>
 			<input type="text" id="datepicker" name="date" value="<?= $content['date'] ?>" class="text">
+		</div>
+		
+		<div class="form_item">
+			<label for="parent_id">Родительский раздел</label></br>
+			<select name="parent_id" style="width:200px;">
+				<option value="0"> -- нет -- </option>
+				<?php if ($parent_services AND count($parent_services)>0): ?>
+					<?php foreach ($parent_services as $value):?>
+						<option value="<?= $value['id'] ?>"<?php if ($value['id'] == $content['parent_id']): ?> selected<?php endif; ?><?php if ($value['id'] == $content['id']): ?> disabled<?php endif; ?>><?= $value['descriptions'][1]['title'] ?></option>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</select>
 		</div>
 	
 		<div class="form_item">
@@ -74,7 +86,7 @@
 	
 	<div id="tabs-6">
 		<?= $categories_form2 ?>
-		<?= $categories_form1 ?>
+		<?//= $categories_form1 ?>
 	</div>
 	
 	<div id="tabs-4">

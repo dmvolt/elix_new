@@ -12,10 +12,10 @@
 		<?= $categories_form2 ?>
 	</div>
 	
-	<div class="form_item">
+	<!--<div class="form_item">
 		<label for="categoryId1">Раздел</label></br>
-		<?= $categories_form1 ?>
-	</div>
+		<?//= $categories_form1 ?>
+	</div>-->
 	
 	<div class="form_item">
 		<label for="date"><?= $text_faq_date ?></label></br>
@@ -75,21 +75,6 @@
                 ?>
                 <?php if ($group['dictionary_id'] == 2): ?>
                     <?php $tree->selectOutTree($group['dictionary_id'], 0, 1, $parent1 = (isset($parent1)) ? $parent1 : ''); //Выводим дерево в элемент выбора ?>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </select>
-    </div>
-	
-	<div class="form_item">
-        <label for="cat2">Раздел</label></br>
-        <select name="cat2" style="width:200px;">
-			<option value=""> -- Все -- </option>
-            <?php
-            $tree = new Tree();
-            foreach ($group_cat as $group):
-                ?>
-                <?php if ($group['dictionary_id'] == 1): ?>
-                    <?php $tree->selectOutTree($group['dictionary_id'], 0, 1, $parent2 = (isset($parent2)) ? $parent2 : ''); //Выводим дерево в элемент выбора ?>
                 <?php endif; ?>
             <?php endforeach; ?>
         </select>

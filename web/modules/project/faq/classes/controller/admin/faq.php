@@ -57,7 +57,7 @@ class Controller_Admin_Faq extends Controller_Admin_Template {
         }
 		
 		/********************* Операции с модулями ********************/
-		$categories_form1 = Controller_Admin_Categories::get_fields(array(), 'faq', 1, false, ''); // true - в диве с заголовком, 'multiple' - select type
+		//$categories_form1 = Controller_Admin_Categories::get_fields(array(), 'faq', 1, false, ''); // true - в диве с заголовком, 'multiple' - select type
 		$categories_form2 = Controller_Admin_Categories::get_fields(array(), 'faq', 2, false, ''); // true - в диве с заголовком, 'multiple' - select type
 		/***********************************************************/
 		
@@ -65,7 +65,7 @@ class Controller_Admin_Faq extends Controller_Admin_Template {
         $content = View::factory('admin/faq')
 				->bind('parameters', $parameters)
 				->bind('group_faq', $group_faq)
-				->bind('categories_form1', $categories_form1)
+				//->bind('categories_form1', $categories_form1)
 				->bind('categories_form2', $categories_form2)
 				->bind('errors', $errors)
                 ->bind('post', $validation)
@@ -214,7 +214,7 @@ class Controller_Admin_Faq extends Controller_Admin_Template {
 		
 		/********************* Операции с модулями ********************/
 		$data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'faq');
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'faq', 1);	
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'faq', 1);	
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'faq', 2);		
 		/***********************************************************/
         $this->template->content = View::factory('admin/faq-edit', $data)

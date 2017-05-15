@@ -10,7 +10,7 @@
 <div id="tabs">
 	<ul>
 		<li><a href="#tabs-1">Основная информация</a></li>
-		<li><a href="#tabs-2">Город и раздел</a></li>
+		<li><a href="#tabs-2">Город</a></li>
 		<li><a href="#tabs-3">SEO</a></li>
 		<li><a href="#tabs-4">Видео</a></li>
 		<li><a href="#tabs-5">Иллюстрации и файлы</a></li>
@@ -79,7 +79,7 @@
 	
 	<div id="tabs-2">
 		<?= $categories_form2 ?>
-		<?= $categories_form1 ?>
+		<?//= $categories_form1 ?>
 	</div>
 	
 	<div id="tabs-3">

@@ -17,8 +17,9 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 		$services_obj = new Model_Services();
 		$categories_obj = new Model_Categories();
 		
-		$catid1 = Arr::get($_GET, 'cat1', null); // Получение параметра cat1 (Город) из адресной строки
-		$catid2 = Arr::get($_GET, 'cat2', null); // Получение параметра cat2 (Раздел) из адресной строки
+		$catid1 = Arr::get($_GET, 'cat1', null); // Получение параметра cat1 (Город)
+		
+		$contents = array();
 		
 		$cat_name = '';
 		$filter_query = '';
@@ -29,11 +30,11 @@ class Controller_Admin_Services extends Controller_Admin_Template {
         $content = View::factory('admin/services')
 				->bind('parameters', $parameters)
                 ->bind('contents', $contents)
+				->bind('parent_services', $parent_services)
 				->bind('pagination', $pagination)
                 ->bind('pagination2', $pagination2)
 				->bind('cat_name', $cat_name)
                 ->bind('parent1', $catid1)
-				->bind('parent2', $catid2)
                 ->bind('group_cat', $group_cat);
 				
 		$group_cat = Kohana::$config->load('menu.group_cat');
@@ -62,22 +63,23 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 			
 			$cat_name .= 'Услуги - '.$cats[2][$catid1]['name'];
 		}
-		
-		if($catid2 AND !empty($catid2)){
-			$filter_query .= ' AND (cc2.category_id = '.$catid2.' AND cc2.module = "services") ';		
-			$inner_join .= ' INNER JOIN `contents_categories` cc2 ON cc2.content_id = a.id ';
-			
-			$cat_name .= ($i)?', '.$cats[1][$catid2]['name']:'Услуги - '.$cats[1][$catid2]['name'];
-			
-			$parameters .= ($i)?'&cat2='.$catid2:'?cat2='.$catid2;
-			$i++;
-		}
 			
 		$total = $services_obj->get_total_all(1, $inner_join, $filter_query, $this->lang_id);   // Получение общего количества записей
 		$result = Pagination::start($total);
 		$pagination = Pagination::admin_navigation($result['page'], $total, $result['total_page'], $result['num']);
 		$pagination2 = Pagination::admin_navigation2($result['page'], $total, $result['total_page'], $result['num']);
-		$contents = $services_obj->get_all(1, $result['start'], $result['num'], 'a.weight', $inner_join, $filter_query, $this->lang_id);
+		$parent_contents = $services_obj->get_parent_all(1, $result['start'], $result['num'], 'a.weight', $inner_join, $filter_query, 0, $this->lang_id);
+		
+		if($parent_contents AND count($parent_contents)>0){
+			foreach($parent_contents as $value){
+				
+				$children = $services_obj->get_parent_all(1, 0, 1000, 'a.weight', $inner_join, $filter_query, $value['id'], $this->lang_id);
+				$contents[] = array(
+					'service' => $value,
+					'children' => $children,
+				);
+			}
+		}
 
 		if($result['page']){
 			$parameters .= ($i) ? '&page='.$result['page'] : '?page='.$result['page'];
@@ -107,6 +109,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 			
                 $add_data = array(
                     'descriptions' => Arr::get($_POST, 'descriptions', array()),
+					'parent_id' => Arr::get($_POST, 'parent_id', 0),
 					'date' => Arr::get($_POST, 'date', ''),					
                     'alias' => Arr::get($_POST, 'alias', ''),
                     'weight' => Arr::get($_POST, 'weight', 0),
@@ -131,8 +134,10 @@ class Controller_Admin_Services extends Controller_Admin_Template {
             $errors = $validation->errors('validation');
         }
 		
+		$parent_services = $services_obj->get_tree(0);
+		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'services', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'services', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'services', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields(array(), 'services');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields(array(), 'services');	
@@ -142,6 +147,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 		
         $this->template->content = View::factory('admin/services-add', $data)
                 ->bind('errors', $errors)
+				->bind('parent_services', $parent_services)
                 ->bind('post', $validation);
     }
 	
@@ -169,6 +175,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
                 
                 $edit_data = array(
                     'descriptions' => Arr::get($_POST, 'descriptions', array()), 
+					'parent_id' => Arr::get($_POST, 'parent_id', 0),
 					'date' => Arr::get($_POST, 'date', ''),						
                     'alias' => Arr::get($_POST, 'alias', ''),
                     'weight' => Arr::get($_POST, 'weight', 0),
@@ -195,9 +202,10 @@ class Controller_Admin_Services extends Controller_Admin_Template {
         }
 		
         $data['content'] = $services_obj->get_content($Id);
+		$parent_services = $services_obj->get_tree(0);
 		
 		/********************* Операции с модулями ********************/	
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'services', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'services', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'services', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'services');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields($data['content'], 'services');
@@ -206,6 +214,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 		/***********************************************************/
         $this->template->content = View::factory('admin/services-edit', $data)
                 ->bind('errors', $errors)
+				->bind('parent_services', $parent_services)
                 ->bind('post', $validation);
     }
 	
@@ -240,6 +249,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
         $data['content'] = $services_obj->get_content($Id);
         $this->template->content = View::factory('admin/services-delete', $data);
     }
+	
     public function unique_url($url) {
         return !DB::select(array(DB::expr('COUNT(alias)'), 'total'))
                         ->from('services')
@@ -247,5 +257,37 @@ class Controller_Admin_Services extends Controller_Admin_Template {
                         ->execute()
                         ->get('total');
     }
+	
+	public static function set_fields($content_id = 0, $post = array(), $module = 'products') {
+	
+		$services_obj = new Model_Services();
+		$services = Arr::get($post, 'serviceId1', array());
+		
+		$services_obj->delete_by_content($content_id, $module);
+        if (count($services) > 0) {
+            foreach ($services as $cat_id) {
+                $services_obj->add_by_content($content_id, $cat_id, $module);
+            }
+        }		
+		return true;
+    }
+	
+	public static function get_fields($data = array(), $module = 'products', $wrapper = true, $multiple = 'multiple') {
+	
+		$services_obj = new Model_Services();
+		$select_services = $services_obj->get_parent_and_children(0);
+		
+		if($data AND !empty($data)){
+			$parent = Model::factory($module)->get_service_parent($data['id']);
+		} else {
+			
+			$parent = 0;
+		}	
+	
+		return View::factory('admin/fields_services')
+				->bind('select_services', $select_services)
+				->bind('multiple', $multiple)
+				->bind('wrapper', $wrapper)
+                ->bind('parent', $parent);
+    }
 }
-// End Controller_Admin_News

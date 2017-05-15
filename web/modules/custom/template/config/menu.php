@@ -10,9 +10,9 @@ return array(
             'target' => '')
     ),
     'group_cat' => array(
-        1 => array(
+        /* 1 => array(
             'name' => 'Типы услуг',
-            'dictionary_id' => 1),
+            'dictionary_id' => 1), */
 		2 => array(
             'name' => 'Город',
             'dictionary_id' => 2),

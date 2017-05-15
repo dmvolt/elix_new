@@ -20,21 +20,6 @@
         </select>
     </div>
 	
-	<div class="form_item">
-        <label for="cat2">Раздел</label></br>
-        <select name="cat2" style="width:200px;">
-			<option value=""> -- Все -- </option>
-            <?php
-            $tree = new Tree();
-            foreach ($group_cat as $group):
-                ?>
-                <?php if ($group['dictionary_id'] == 1): ?>
-                    <?php $tree->selectOutTree($group['dictionary_id'], 0, 1, $parent2 = (isset($parent2)) ? $parent2 : ''); //Выводим дерево в элемент выбора ?>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </select>
-    </div>
-	
     <div class="form_item" style="top:32px">
         <a onclick="$('#form').submit();" class="btn_core btn_core_blue btn_core_md"><span><?= $text_save ?></span></a>
     </div>
@@ -62,27 +47,57 @@
                         <td class="first">
 						<?php if(isset($languages)): ?>
 							<?php foreach ($languages as $item): ?>
-								<input type="text" id="name_input_lang_<?= $item['lang_id']?>" name="descriptions[<?= $value['id'] ?>][<?= $item['lang_id']?>][title]" value='<?= $value['descriptions'][$item['lang_id']]['title'] ?>' class="text"><?= $item['icon']?>
+								<input type="text" id="name_input_lang_<?= $item['lang_id']?>" name="descriptions[<?= $value['service']['id'] ?>][<?= $item['lang_id']?>][title]" value='<?= $value['service']['descriptions'][$item['lang_id']]['title'] ?>' class="text"><?= $item['icon']?>
 							<?php endforeach; ?>
 						<?php else: ?>
-							<input type="text" name="descriptions[<?= $value['id'] ?>][1][title]" value='<?= $value['descriptions'][1]['title'] ?>' class="text">
+							<input type="text" name="descriptions[<?= $value['service']['id'] ?>][1][title]" value='<?= $value['service']['descriptions'][1]['title'] ?>' class="text">
 						<?php endif; ?>
 						</td>
-                        <td><input type="text" name="alias[<?= $value['id'] ?>]" class="text" value="<?= $value['alias'] ?>"></td>
-                        <?php if ($value['status']): ?>
-                            <td class="last"><span style="color:green"><?= $text_active ?></span><input type='checkbox' onclick="checkboxStatus(<?= $value['id'] ?>);" id='status_<?= $value['id'] ?>' checked value='1'></td>
+                        <td><input type="text" name="alias[<?= $value['service']['id'] ?>]" class="text" value="<?= $value['service']['alias'] ?>"></td>
+                        <?php if ($value['service']['status']): ?>
+                            <td class="last"><span style="color:green"><?= $text_active ?></span><input type='checkbox' onclick="checkboxStatus(<?= $value['service']['id'] ?>);" id='status_<?= $value['service']['id'] ?>' checked value='1'></td>
                         <?php else: ?>
-                            <td class="last"><span style="color:red"><?= $text_inactive ?></span><input type='checkbox' onclick="checkboxStatus(<?= $value['id'] ?>);" id='status_<?= $value['id'] ?>' value='1'></td>
+                            <td class="last"><span style="color:red"><?= $text_inactive ?></span><input type='checkbox' onclick="checkboxStatus(<?= $value['service']['id'] ?>);" id='status_<?= $value['service']['id'] ?>' value='1'></td>
                         <?php endif; ?>
-                        <input type='hidden' name='status[<?= $value['id'] ?>]' id="statusfield_<?= $value['id'] ?>" value=''>
+                        <input type='hidden' name='status[<?= $value['service']['id'] ?>]' id="statusfield_<?= $value['service']['id'] ?>" value=''>
                         <script>
                         $(document).ready(function(){
-                            checkboxStatus(<?= $value['id'] ?>);
+                            checkboxStatus(<?= $value['service']['id'] ?>);
                         });
                         </script>
-                        <td class="last"><input type="text" name="weight[<?= $value['id'] ?>]" class="text short" value="<?= $value['weight'] ?>"></td>
-                        <td class="last"><a href="/admin/services/edit/<?= $value['id'] ?><?= $parameters ?>" class="edit"><?= $text_edit ?></a>&nbsp;&nbsp;<a href="/admin/services/delete/<?= $value['id'] ?><?= $parameters ?>" class="delete"><?= $text_delete_img ?></a></td>
+                        <td class="last"><input type="text" name="weight[<?= $value['service']['id'] ?>]" class="text short" value="<?= $value['service']['weight'] ?>"></td>
+                        <td class="last"><a href="/admin/services/edit/<?= $value['service']['id'] ?><?= $parameters ?>" class="edit"><?= $text_edit ?></a>&nbsp;&nbsp;<a href="/admin/services/delete/<?= $value['service']['id'] ?><?= $parameters ?>" class="delete"><?= $text_delete_img ?></a></td>
                     </tr>
+					
+					<?php if ($value['children']): ?>
+						<?php foreach ($value['children'] as $value2): ?>
+							<tr>
+								<td class="first">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<?php if(isset($languages)): ?>
+									<?php foreach ($languages as $item): ?>
+										<input type="text" id="name_input_lang_<?= $item['lang_id']?>" name="descriptions[<?= $value2['id'] ?>][<?= $item['lang_id']?>][title]" value='<?= $value2['descriptions'][$item['lang_id']]['title'] ?>' class="text"><?= $item['icon']?>
+									<?php endforeach; ?>
+								<?php else: ?>
+									<input type="text" name="descriptions[<?= $value2['id'] ?>][1][title]" value='<?= $value2['descriptions'][1]['title'] ?>' class="text">
+								<?php endif; ?>
+								</td>
+								<td><input type="text" name="alias[<?= $value2['id'] ?>]" class="text" value="<?= $value2['alias'] ?>"></td>
+								<?php if ($value2['status']): ?>
+									<td class="last"><span style="color:green"><?= $text_active ?></span><input type='checkbox' onclick="checkboxStatus(<?= $value2['id'] ?>);" id='status_<?= $value2['id'] ?>' checked value='1'></td>
+								<?php else: ?>
+									<td class="last"><span style="color:red"><?= $text_inactive ?></span><input type='checkbox' onclick="checkboxStatus(<?= $value2['id'] ?>);" id='status_<?= $value2['id'] ?>' value='1'></td>
+								<?php endif; ?>
+								<input type='hidden' name='status[<?= $value2['id'] ?>]' id="statusfield_<?= $value2['id'] ?>" value=''>
+								<script>
+								$(document).ready(function(){
+									checkboxStatus(<?= $value2['id'] ?>);
+								});
+								</script>
+								<td class="last"><input type="text" name="weight[<?= $value2['id'] ?>]" class="text short" value="<?= $value2['weight'] ?>"></td>
+								<td class="last"><a href="/admin/services/edit/<?= $value2['id'] ?><?= $parameters ?>" class="edit"><?= $text_edit ?></a>&nbsp;&nbsp;<a href="/admin/services/delete/<?= $value2['id'] ?><?= $parameters ?>" class="delete"><?= $text_delete_img ?></a></td>
+							</tr>
+						<?php endforeach; ?>
+					<?php endif; ?>
                 <?php endforeach; ?>
             </tbody>		
         </table>

@@ -22,21 +22,6 @@
         </select>
     </div>
 	
-	<div class="form_item">
-        <label for="cat2">Раздел</label></br>
-        <select name="cat2" style="width:200px;">
-			<option value=""> -- Все -- </option>
-            <?php
-            $tree = new Tree();
-            foreach ($group_cat as $group):
-                ?>
-                <?php if ($group['dictionary_id'] == 1): ?>
-                    <?php $tree->selectOutTree($group['dictionary_id'], 0, 1, $parent2 = (isset($parent2)) ? $parent2 : ''); //Выводим дерево в элемент выбора ?>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </select>
-    </div>
-	
     <div class="form_item" style="top:32px">
         <a onclick="$('#form').submit();" class="btn_core btn_core_blue btn_core_md"><span><?= $text_save ?></span></a>
     </div>

@@ -115,7 +115,7 @@ class Controller_Admin_Sertifications extends Controller_Admin_Template {
         }
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'sertifications', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'sertifications', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'sertifications', 2);		
         $data['files_form'] = Controller_Admin_Files::get_fields(array(), 'sertifications');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields(array(), 'sertifications');		
@@ -169,7 +169,7 @@ class Controller_Admin_Sertifications extends Controller_Admin_Template {
         $data['content'] = $sertifications_obj->get_content($Id);
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'sertifications', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'sertifications', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'sertifications', 2);		
         $data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'sertifications');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields($data['content'], 'sertifications');

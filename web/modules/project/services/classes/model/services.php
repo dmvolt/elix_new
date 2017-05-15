@@ -16,9 +16,10 @@ class Model_Services {
 	
     public function add($data = array()) {
 	
-        $result = DB::query(Database::INSERT, 'INSERT INTO ' . $this->tableName . ' (alias, `date`, weight, status) VALUES (:alias, :date, :weight, :status)')
+        $result = DB::query(Database::INSERT, 'INSERT INTO ' . $this->tableName . ' (parent_id, alias, `date`, weight, status) VALUES (:parent_id, :alias, :date, :weight, :status)')
                 ->parameters(array(
-                    ':alias' => Security::xss_clean($data['alias']),  
+                    ':parent_id' => $data['parent_id'],
+					':alias' => Security::xss_clean($data['alias']),					
 					':date' => Security::xss_clean($data['date']), 					
                     ':weight' => Security::xss_clean($data['weight']),
                     ':status' => Security::xss_clean($data['status'])
@@ -47,9 +48,10 @@ class Model_Services {
     }
 	
     public function edit($Id, $data = array()) {
-        DB::query(Database::UPDATE, 'UPDATE ' . $this->tableName . ' SET `alias` = :alias, `date` = :date, `weight` = :weight, `status` = :status WHERE `id` = :id')
+        DB::query(Database::UPDATE, 'UPDATE ' . $this->tableName . ' SET `parent_id` = :parent_id, `alias` = :alias, `date` = :date, `weight` = :weight, `status` = :status WHERE `id` = :id')
                 ->parameters(array(
-                    ':id' => $Id,                    
+                    ':id' => $Id,  
+					':parent_id' => $data['parent_id'],
                     ':alias' => Security::xss_clean($data['alias']), 
 					':date' => Security::xss_clean($data['date']),
                     ':weight' => Security::xss_clean($data['weight']), 
@@ -112,6 +114,27 @@ class Model_Services {
         }
     }
 	
+	public function delete_by_content($content_id, $module = 'products') {
+        DB::query(Database::DELETE, 'DELETE FROM `contents_services` WHERE `content_id` = :id AND `module` = :module')
+                ->parameters(array(
+                    ':id' => (int) $content_id,
+                    ':module' => $module,
+                ))
+                ->execute();
+		return true;
+    }
+	
+	public function add_by_content($content_id, $cat_id, $module = 'products') {
+        DB::query(Database::INSERT, 'INSERT INTO `contents_services` (service_id, content_id, module) VALUES (:service_id, :content_id, :module)')
+				->parameters(array(
+					':service_id' => $cat_id,
+					':content_id' => $content_id,
+					':module' => $module,
+				))
+				->execute();
+		return true;
+    }
+	
     public function get_all($is_adminka = 0, $start = 0, $num = 100, $field = 'a.id', $inner_join = '', $filter = '', $lang_id = 1) {
 		$contents = array();
         if ($is_adminka) {
@@ -135,6 +158,52 @@ class Model_Services {
             }
         }
         return $contents;
+    }
+	
+	public function get_parent_all($is_adminka = 0, $start = 0, $num = 100, $field = 'a.id', $inner_join = '', $filter = '', $parent_id = 0, $lang_id = 1) {
+		$contents = array();
+        if ($is_adminka) {
+            $sql = "SELECT * FROM " . $this->tableName . " a INNER JOIN " . $this->tableDesc . " cd ON cd.content_id = a.id " . $inner_join . " WHERE cd.lang_id = :lang_id AND cd.module = :module AND a.parent_id = ".$parent_id." " . $filter . " ORDER BY a.weight, :field DESC LIMIT :start, :num";
+        } else {
+            $sql = "SELECT * FROM " . $this->tableName . " a INNER JOIN " . $this->tableDesc . " cd ON cd.content_id = a.id " . $inner_join . " WHERE cd.lang_id = :lang_id AND cd.module = :module AND a.status = 1 AND a.parent_id = ".$parent_id." " . $filter . " ORDER BY a.weight, :field DESC LIMIT :start, :num";
+        } 
+        $result = DB::query(Database::SELECT, $sql)
+                ->parameters(array(
+                    ':field' => $field, 
+                    ':start' => (int) $start, 
+                    ':num' => (int) $num,
+					':lang_id' => $lang_id,
+					':module' => 'services',
+                    ))
+                ->execute();
+				
+		if (count($result) > 0) {
+            foreach ($result as $res) {
+                $contents[] = $this->get_content($res['id']);
+            }
+        }
+        return $contents;
+    }
+	
+	public function get_parent_and_children($parent_id = 0) {
+		$contents = array();
+        
+        $sql = "SELECT * FROM " . $this->tableName . " WHERE parent_id = ".$parent_id." ORDER BY weight";
+        
+        $result = DB::query(Database::SELECT, $sql)->execute();
+				
+		if ($result AND count($result) > 0) {
+            foreach ($result as $res) {
+				$children = $this->get_parent_and_children($res['id']);
+				$contents[] = array(
+					'service' => $this->get_content_lite($res),
+					'children' => $children,
+				);
+            }
+			return $contents;
+        } else {
+			return false;
+		}
     }
 	
     public function get_all_to_cat($cat, $start = 0, $num = 100, $field = 'a.weight', $lang_id = 1) {
@@ -173,6 +242,19 @@ class Model_Services {
         } else {
 			return array();
 		}
+    }
+	
+	public function get_tree($parent_id = 0) {	
+		$contents = array();		
+        $result = DB::query(Database::SELECT, "SELECT id FROM " . $this->tableName . " WHERE `status` = 1 AND `parent_id` = ".$parent_id." ORDER BY `weight`")
+					->execute();
+		
+		if (count($result) > 0) {
+            foreach ($result as $res) {
+                $contents[] = $this->get_content($res['id']);
+            }
+        }
+        return $contents;		
     }
 	
 	public function get_last($num = 4) {	
@@ -244,6 +326,7 @@ class Model_Services {
 			
 			$contents = array(
 				'id' => $result[0]['id'],
+				'parent_id' => $result[0]['parent_id'],
 				'descriptions' => $descriptions,
 				'date' => $result[0]['date'],
 				'alias' => $result[0]['alias'],				
@@ -257,6 +340,47 @@ class Model_Services {
 		} else {
 			return FALSE;
 		}    
+    }
+	
+	public function get_content_lite($result) {
+	
+		$lang_result = DB::query(Database::SELECT, 'SELECT * FROM `' . $this->tableDesc . '` WHERE `content_id` = :content_id AND `module` = :module')
+					->parameters(array(
+						':content_id' => $result['id'],
+						':module' => 'services',
+					))->execute();
+					
+		if(count($lang_result)>0){
+			foreach($lang_result as $value){
+				$descriptions[$value['lang_id']] = array(
+					'title' => $value['content_title'],
+					'teaser' => $value['content_teaser'],
+					'body' => $value['content_body'],
+				);
+			}
+		}
+		
+		$languages = Kohana::$config->load('language');
+		foreach($languages as $value){
+			if(!isset($descriptions[$value['lang_id']])){
+				$descriptions[$value['lang_id']] = array(
+					'title' => '',
+					'teaser' => '',
+					'body' => '',
+				);
+			}
+		}
+		
+		$contents = array(
+			'id' => $result['id'],
+			'parent_id' => $result['parent_id'],
+			'descriptions' => $descriptions,
+			'date' => $result['date'],
+			'alias' => $result['alias'],				
+			'weight' => $result['weight'],			
+			'status' => $result['status'],
+		);
+		return $contents;
     }
 	
     public function get_parent($id = '') {

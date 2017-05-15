@@ -16,6 +16,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 		
 		$articles_obj = new Model_Articles();
 		$categories_obj = new Model_Categories();
+		$services_obj = new Model_Services();
 		
 		$catid1 = Arr::get($_GET, 'cat1', null); // Получение параметра cat1 (Город) из адресной строки
 		$catid2 = Arr::get($_GET, 'cat2', null); // Получение параметра cat2 (Раздел) из адресной строки
@@ -34,7 +35,10 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 				->bind('cat_name', $cat_name)
                 ->bind('parent1', $catid1)
 				->bind('parent2', $catid2)
+				->bind('select_services', $select_services)
                 ->bind('group_cat', $group_cat);
+				
+		$select_services = $services_obj->get_parent_and_children(0);
 				
 		$group_cat = Kohana::$config->load('menu.group_cat');
 		
@@ -64,11 +68,9 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 		}
 		
 		if($catid2 AND !empty($catid2)){
-			$filter_query .= ' AND (cc2.category_id = '.$catid2.' AND cc2.module = "articles") ';		
-			$inner_join .= ' INNER JOIN `contents_categories` cc2 ON cc2.content_id = a.id ';
-			
-			$cat_name .= ($i)?', '.$cats[1][$catid2]['name']:'Статьи - '.$cats[1][$catid2]['name'];
-			
+			$filter_query .= ' AND (cs.service_id = '.$catid2.' AND cs.module = "articles") ';		
+			$inner_join .= ' INNER JOIN `contents_services` cs ON cs.content_id = a.id ';
+
 			$parameters .= ($i)?'&cat2='.$catid2:'?cat2='.$catid2;
 			$i++;
 		}
@@ -92,6 +94,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
         $this->session->set('content_redirect', $_SERVER['REQUEST_URI']);
 		
 		$articles_obj = new Model_Articles();
+		
         if (isset($_POST['descriptions'][1]['title'])) {
             $v_data = array('descriptions' => $_POST['descriptions'], 'title' => $_POST['descriptions'][1]['title'], 'alias' => $_POST['alias']);
             $validation = Validation::factory($v_data);
@@ -119,6 +122,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 					
 					/********************* Операции с модулями ********************/
 					Controller_Admin_Categories::set_fields($new_content_id, $_POST, 'articles');
+					Controller_Admin_Services::set_fields($new_content_id, $_POST, 'articles');
 					Controller_Admin_Files::set_fields($new_content_id, $_POST, 'articles');
 					Controller_Admin_Seo::set_fields($new_content_id, $_POST, 'articles');
 					Controller_Admin_Tags::set_fields($new_content_id, $_POST, 1, 'articles');
@@ -131,7 +135,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
         }
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'articles', 1);
+		$data['categories_form1'] = Controller_Admin_Services::get_fields(array(), 'articles');
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'articles', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields(array(), 'articles');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields(array(), 'articles');	
@@ -179,6 +183,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 				
 					/********************* Операции с модулями ********************/
 					Controller_Admin_Categories::set_fields($Id, $_POST, 'articles');
+					Controller_Admin_Services::set_fields($Id, $_POST, 'articles');
 					Controller_Admin_Files::set_fields($Id, $_POST, 'articles');
 					Controller_Admin_Seo::set_fields($Id, $_POST, 'articles');
 					Controller_Admin_Tags::set_fields($Id, $_POST, 1, 'articles');
@@ -194,7 +199,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
         $data['content'] = $articles_obj->get_content($Id);
 		
 		/********************* Операции с модулями ********************/	
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'articles', 1);
+		$data['categories_form1'] = Controller_Admin_Services::get_fields($data['content'], 'articles');
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'articles', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'articles');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields($data['content'], 'articles');
@@ -211,6 +216,8 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 		
         $articles_obj = new Model_Articles();
 		$categories_obj = new Model_Categories();
+		$services_obj = new Model_Services();
+		
 		$file_obj = new Model_File();
 		$seo_obj = new Model_Seo();
 		$tags_obj = new Model_Tags();
@@ -222,6 +229,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
 			
 			/********************* Операции с модулями ********************/
 			$categories_obj->delete_category_by_content($Id, 'articles');
+			$services_obj->delete_by_content($Id, 'articles');
 			$seo_obj->delete_by_content($Id, 'articles');
 			$file_obj->delete_files_by_content($Id, 'articles');
 			$tags_obj->delete($Id, 'articles');
@@ -234,6 +242,7 @@ class Controller_Admin_Articles extends Controller_Admin_Template {
         $data['content'] = $articles_obj->get_content($Id);
         $this->template->content = View::factory('admin/articles-delete', $data);
     }
+	
     public function unique_url($url) {
         return !DB::select(array(DB::expr('COUNT(alias)'), 'total'))
                         ->from('articles')

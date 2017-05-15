@@ -132,7 +132,7 @@ class Controller_Admin_Specials extends Controller_Admin_Template {
         }
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'specials', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'specials', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'specials', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields(array(), 'specials');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields(array(), 'specials');		
@@ -190,7 +190,7 @@ class Controller_Admin_Specials extends Controller_Admin_Template {
         $data['content'] = $specials_obj->get_content($Id);
 		
 		/********************* Операции с модулями ********************/	
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'specials', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'specials', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'specials', 2);
         $data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'specials');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields($data['content'], 'specials');

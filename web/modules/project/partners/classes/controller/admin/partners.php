@@ -130,7 +130,7 @@ class Controller_Admin_Partners extends Controller_Admin_Template {
         }
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'partners', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields(array(), 'partners', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields(array(), 'partners', 2);
 		$data['files_form'] = Controller_Admin_Files::get_fields(array(), 'partners');
 		$data['seo_form'] = Controller_Admin_Seo::get_fields(array(), 'partners');		
@@ -194,7 +194,7 @@ class Controller_Admin_Partners extends Controller_Admin_Template {
         $data['content'] = $partners_obj->get_content($Id);
 		
 		/********************* Операции с модулями ********************/
-		$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'partners', 1);
+		//$data['categories_form1'] = Controller_Admin_Categories::get_fields($data['content'], 'partners', 1);
 		$data['categories_form2'] = Controller_Admin_Categories::get_fields($data['content'], 'partners', 2);
 		$data['files_form'] = Controller_Admin_Files::get_fields($data['content'], 'partners');	
 		$data['seo_form'] = Controller_Admin_Seo::get_fields($data['content'], 'partners');
