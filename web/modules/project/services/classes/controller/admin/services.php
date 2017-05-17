@@ -95,7 +95,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 		
 		$services_obj = new Model_Services();
         if (isset($_POST['descriptions'][1]['title'])) {
-            $v_data = array('descriptions' => $_POST['descriptions'], 'title' => $_POST['descriptions'][1]['title'], 'alias' => $_POST['alias']);
+            $v_data = array('descriptions' => $_POST['descriptions'], 'title' => $_POST['descriptions'][1]['title'], 'alias' => $_POST['alias'], 'price' => $_POST['price']);
             $validation = Validation::factory($v_data);
             $validation->rule('title', 'not_empty');
             $validation->rule('title', 'min_length', array(':value', '2'));
@@ -112,6 +112,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 					'parent_id' => Arr::get($_POST, 'parent_id', 0),
 					'date' => Arr::get($_POST, 'date', ''),					
                     'alias' => Arr::get($_POST, 'alias', ''),
+					'price' => Arr::get($_POST, 'price', ''),
                     'weight' => Arr::get($_POST, 'weight', 0),
                     'status' => Arr::get($_POST, 'status', 0),
                 );
@@ -161,7 +162,7 @@ class Controller_Admin_Services extends Controller_Admin_Template {
 		
         if (isset($_POST['descriptions'][1]['title'])) {
 		
-            $v_data = array('descriptions' => $_POST['descriptions'], 'title' => $_POST['descriptions'][1]['title'], 'alias' => $_POST['alias']);
+            $v_data = array('descriptions' => $_POST['descriptions'], 'title' => $_POST['descriptions'][1]['title'], 'alias' => $_POST['alias'], 'price' => $_POST['price']);
             $validation = Validation::factory($v_data);
             $validation->rule('title', 'not_empty');
             $validation->rule('title', 'min_length', array(':value', '2'));
@@ -176,7 +177,8 @@ class Controller_Admin_Services extends Controller_Admin_Template {
                 $edit_data = array(
                     'descriptions' => Arr::get($_POST, 'descriptions', array()), 
 					'parent_id' => Arr::get($_POST, 'parent_id', 0),
-					'date' => Arr::get($_POST, 'date', ''),						
+					'date' => Arr::get($_POST, 'date', ''),		
+					'price' => Arr::get($_POST, 'price', ''),
                     'alias' => Arr::get($_POST, 'alias', ''),
                     'weight' => Arr::get($_POST, 'weight', 0),
                     'status' => Arr::get($_POST, 'status', 0),

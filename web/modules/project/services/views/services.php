@@ -2,10 +2,31 @@
 	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
 		<!-- block breadcrumbs start -->
-		<?= Breadcrumbs::get_breadcrumbs(0, 'services', $cat2, $current_param_cat) ?>
+		<?= Breadcrumbs::get_breadcrumbs(0, 'services', $cat1, $cat2, $cat3) ?>
 		<!-- block breadcrumbs end -->
 
 		<h1><?= $page_title ?></h1>
+		
+		<article class="article">
+			<?php  if($service_info): ?>
+				<?= $service_info['descriptions'][1]['body'] ?>
+			<?php endif; ?>
+			<?php  if(!empty($service_info['price'])): ?>
+				<h2>Прайс лист</h2>
+				<?= $service_info['price'] ?>
+			<?php endif; ?>
+		</article>
+		
+		<?php if($partners): ?>
+			<article class="article article--adr">
+				<h2>Адреса салонов где оказывают данную услугу</h2>
+				<?php foreach($partners as $item): ?>
+					<?php if($item): ?>
+						<h4><a href="<?= Data::_('lang_uri') . '/contacts/' . $item['alias'] ?>"><?= $item['descriptions'][Data::_('lang_id')]['title'] ?> <?//= $item['descriptions'][Data::_('lang_id')]['teaser'] ?></a></h4>
+					<?php endif; ?>
+				<?php endforeach; ?>
+			</article>
+		<?php endif; ?>
 
 		<div class="flex">
 			<?php if($services): ?>
@@ -17,16 +38,16 @@
 						<div class="topic topic--big">
 							<?= $item['edit_interface'] ?>
 							<?php if($item['thumb']): ?>
-								<a href="/<?= $cat ?>/services/<?= $category_info2[0]['alias'] ?>/<?= $item['alias'] ?>" class="topic__figure">
+								<a href="/services<?= $cat_tree_prelink ?><?= $item['alias'] ?>" class="topic__figure">
 									<img src="<?= Im::imagepath('200x150', $item['thumb']) ?>" class="img-left">
 								</a>
 							<?php endif; ?>
-							<div class="topic__header"><a href="/<?= $cat ?>/services/<?= $category_info2[0]['alias'] ?>/<?= $item['alias'] ?>"><?= $item['descriptions'][1]['title'] ?></a></div>
+							<div class="topic__header"><a href="/services<?= $cat_tree_prelink ?><?= $item['alias'] ?>"><?= $item['descriptions'][1]['title'] ?></a></div>
 							<div class="topic__date"><?= Text::format_date($item['date']) ?></div>
 							<div class="topic__text">
 								<?= $item['descriptions'][1]['teaser'] ?>
 							</div>
-							<a href="/<?= $cat ?>/services/<?= $category_info2[0]['alias'] ?>/<?= $item['alias'] ?>" class="topic__more">Читать далее</a>
+							<a href="/services<?= $cat_tree_prelink ?><?= $item['alias'] ?>" class="topic__more">Читать далее</a>
 						</div>
 						<!-- block topic end -->
 
@@ -35,14 +56,6 @@
 				<?php endforeach; ?> 
 			<?php endif; ?>
 		</div>
-		
-		<article class="article">
-			<?php  if($category_info2): ?>
-				<?= $category_info2[0]['descriptions'][1]['body'] ?>
-			<?php else: ?>
-				<?= $category_info1[0]['descriptions'][1]['body'] ?>
-			<?php endif; ?>
-		</article>
 
 		<?= Articles::get_block($current_param_cat, 9) ?>
 	</div>

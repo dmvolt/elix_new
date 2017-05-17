@@ -2,7 +2,7 @@
 	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
 		<!-- block breadcrumbs start -->
-		<?= Breadcrumbs::get_breadcrumbs(0, 'actions', false, $current_param_cat) ?>
+		<?= Breadcrumbs::get_breadcrumbs(0, 'actions') ?>
 		<!-- block breadcrumbs end -->
 
 		<?php if($all_actions): ?>
@@ -13,7 +13,7 @@
 			<div class="flex">
 				<?php foreach($all_actions as $article): ?>
 					<div class="flex__item flex__item--50 flex__item--bp-480--100">
-						<a href="<?= Data::_('lang_uri') . $cat_url . '/actions/' . $article['alias'] ?>">
+						<a href="<?= Data::_('lang_uri') . '/actions/' . $article['alias'] ?>">
 							<!-- block pic start -->
 							<?php if($article['thumb']): ?>
 								<div class="pic">

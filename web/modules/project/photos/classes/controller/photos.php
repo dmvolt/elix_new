@@ -12,20 +12,20 @@ class Controller_Photos extends Controller_Template {
 				->bind('edit_interface', $edit_interface)
                 ->bind('article', $article);
 
-        $photos_obj = new Model_Photos();
-        $article = $photos_obj->get_content($alias);
+        $services_obj = new Model_Services();
+        $article = $services_obj->get_content($alias);
 		
 		$this->page_class = 'photo';
 		
 		if($article){
 		
-			$edit_interface = Liteedit::get_interface($article['id'], 'photos');
+			$edit_interface = Liteedit::get_interface($article['id'], 'services');
 
 			$this->page_title = $article['descriptions'][$this->lang_id]['title'];
 			
 			/****************************** SEO ******************************/	
 			$seo_obj = new Model_Seo();
-			$seo = $seo_obj->get_seo_to_content($article['id'], 'photos');
+			$seo = $seo_obj->get_seo_to_content($article['id'], 'services');
 			
 			if($seo[$this->lang_id]['title'] != ''){
 				$this->page_title = $seo[$this->lang_id]['title'];
@@ -56,10 +56,8 @@ class Controller_Photos extends Controller_Template {
 
     public function action_photos() {
 	
-        $photos_obj = new Model_Photos();
+        $services_obj = new Model_Services();
         $categories_obj = new Model_Categories();
-		
-		$cat = $this->current_param_cat;
 		
 		$this->page_class = 'photo';
 		
@@ -69,24 +67,13 @@ class Controller_Photos extends Controller_Template {
 		$category_info2 = $categories_obj->getCategory(2, SUBDOMEN);
 		
 		if($category_info2){
-			$filter_query .= ' AND (cc1.category_id = '.$category_info2[0]['id'].' AND cc1.module = "photos") ';		
-			$inner_join .= ' INNER JOIN `contents_categories` cc1 ON cc1.content_id = p.id ';
+			$filter_query .= ' AND (cc1.category_id = '.$category_info2[0]['id'].' AND cc1.module = "services") ';		
+			$inner_join .= ' INNER JOIN `contents_categories` cc1 ON cc1.content_id = a.id ';
 			
 			$this->page_title = 'Фотогалерея';
 		}
 		
-		if($cat){
-			$category_info1 = $categories_obj->getCategory(1, $cat);
-			
-			if($category_info1){
-				$filter_query .= ' AND (cc2.category_id = '.$category_info1[0]['id'].' AND cc2.module = "photos") ';		
-				$inner_join .= ' INNER JOIN `contents_categories` cc2 ON cc2.content_id = p.id ';
-			}
-			
-			$this->page_title = 'Фотогалерея - '.$category_info1[0]['descriptions'][1]['title'];
-		}
-		
-		$contents = $photos_obj->get_all(0, 0, 100, 'p.weight', $inner_join, $filter_query);
+		$contents = $services_obj->get_all(0, 0, 100, 'a.weight', $inner_join, $filter_query);
 		
 		$content = View::factory($this->template_directory . 'photos')
 					->bind('photos', $contents);

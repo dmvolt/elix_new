@@ -12,6 +12,7 @@
 		<li><a href="#tabs-6">Город</a></li>
 		<li><a href="#tabs-4">Теги</a></li>
 		<li><a href="#tabs-5">Офисы</a></li>
+		<li><a href="#tabs-7">Прайс лист</a></li>
 		<li><a href="#tabs-3">Иллюстрации</a></li>
 	</ul>
 	
@@ -91,6 +92,12 @@
 	
 	<div id="tabs-5">
 		<?= $address_form ?>
+	</div>
+	
+	<div id="tabs-7">
+		<div class="form_item_textarea">			
+			<label for="price">Прайс лист</label><textarea name="price" class="lang_editor"><?= $post['price'] ?></textarea>
+		</div>
 	</div>
 	
 	<div id="tabs-3">

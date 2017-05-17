@@ -77,66 +77,60 @@ class Controller_Services extends Controller_Template {
 	
         $services_obj = new Model_Services();
         $categories_obj = new Model_Categories();
+		$related_obj = new Model_Related();
+		$partners_obj = new Model_Partners();
 		
-		$cat = $this->current_param_cat;
+		$partners = array();
+		
+		$cat = false;
+		$cat1 = $this->request->param('cat1');
 		$cat2 = $this->request->param('cat2');
+		$cat3 = $this->request->param('cat3');
 		
 		$filter_query = '';
 		$inner_join = '';
+		$cat_tree_prelink = '/';
 		
-		$category_info2 = $categories_obj->getCategory(2, SUBDOMEN);
+		$city_info = $categories_obj->getCategory(2, SUBDOMEN);
 		
-		if($category_info2){
-			$filter_query .= ' AND (cc1.category_id = '.$category_info2[0]['id'].' AND cc1.module = "services") ';		
+		if($city_info){
+			$filter_query .= ' AND (cc1.category_id = '.$city_info[0]['id'].' AND cc1.module = "services") ';		
 			$inner_join .= ' INNER JOIN `contents_categories` cc1 ON cc1.content_id = a.id ';
 			
 			$this->page_title = 'Услуги';
 		}
 		
-		if($cat){
-			$category_info1 = $categories_obj->getCategory(1, $cat);
-			
-			$child_categories_pre = $categories_obj->getCategories(1, $category_info1[0]['id'], 0);
-			
-			if($category_info1){
-				$filter_query .= ' AND (cc2.category_id = '.$category_info1[0]['id'].' AND cc2.module = "services") ';		
-				$inner_join .= ' INNER JOIN `contents_categories` cc2 ON cc2.content_id = a.id ';
-			}
-			
-			if($child_categories_pre){
-				foreach($child_categories_pre as $value){
-					$services = false;
-					
-					$sp_filter_query = ' AND (ccs.category_id = '.$value['id'].' AND ccs.module = "services") ';		
-					$sp_inner_join = ' INNER JOIN `contents_categories` ccs ON ccs.content_id = a.id ';
-					
-					$s_filter_query = $filter_query.$sp_filter_query;		
-					$s_inner_join = $inner_join.$sp_inner_join;
-					
-					$services = $services_obj->get_all(0, 0, 100, 'a.weight', $s_inner_join, $s_filter_query);
-					$child_categories[] = array(
-						'id' => $value['id'],
-						'parent_id' => $value['parent_id'],
-						'descriptions' => $value['descriptions'],
-						'alias' => $value['alias'],
-						'thumb' => $value['thumb'],	
-						'services' => $services,
-					);
-				}
-			}
-			
-			$this->page_title .= ' - '.$category_info1[0]['descriptions'][1]['title'];
+		if($cat1){
+			$cat = $cat1;
+			$cat_tree_prelink .= $cat1.'/';
 		}
 		
 		if($cat2){
-			$category_info3 = $categories_obj->getCategory(1, $cat2);
+			$cat = $cat2;
+			$cat_tree_prelink .= $cat2.'/';
+		}
+		
+		if($cat3){
+			$cat = $cat3;
+			$cat_tree_prelink .= $cat3.'/';
+		}
+		
+		if($cat){
+			$service_info = $services_obj->get_content($cat);
 			
-			if($category_info3){
-				$filter_query .= ' AND (cc3.category_id = '.$category_info3[0]['id'].' AND cc3.module = "services") ';		
-				$inner_join .= ' INNER JOIN `contents_categories` cc3 ON cc3.content_id = a.id ';
+			if($service_info){
+				$filter_query .= ' AND a.parent_id = '.$service_info['id'].' ';		
 			}
 			
-			$this->page_title .= ' - '.$category_info3[0]['descriptions'][1]['title'];
+			$related = $related_obj->get_related_to_content($service_info['id'], 0, 'services');
+			
+			if(!empty($related)){
+				foreach($related as $item){
+					$partners[] = $partners_obj->get_content($item['code']);
+				}
+			}
+			
+			$this->page_title .= ' - '.$service_info['descriptions'][1]['title'];
 		}
 		
 		$total = $services_obj->get_total_all(0, $inner_join, $filter_query);   // Получение общего количества записей
@@ -147,11 +141,12 @@ class Controller_Services extends Controller_Template {
 		$this->page_class = 'services';
 		
 		$content = View::factory($this->template_directory . 'services')
-					->bind('child_categories', $child_categories)
-					->bind('category_info1', $category_info1)
-					->bind('category_info2', $category_info3)
-					->bind('cat', $cat)
+					->bind('service_info', $service_info)
+					->bind('cat1', $cat1)
 					->bind('cat2', $cat2)
+					->bind('cat3', $cat3)
+					->bind('partners', $partners)
+					->bind('cat_tree_prelink', $cat_tree_prelink)
 					->bind('pagination', $pagination)
 					->bind('services', $contents);
 					

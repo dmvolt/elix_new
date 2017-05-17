@@ -36,17 +36,6 @@ abstract class Controller_Template extends Kohana_Controller_Template {
 		$a_inner_join = ' INNER JOIN `contents_categories` cc1 ON cc1.content_id = a.id ';
 		
 		$address = $partners_obj->get_all(0, 0, 100, 'a.weight', $a_inner_join, $a_filter_query);
-		
-		$this->current_param_cat = Request::current()->param('cat');
-		
-		if($this->current_param_cat){
-			$this->current_param_menu = '/'.$this->current_param_cat;
-		}
-		
-		if(!$this->current_param_cat){
-			$this->current_param_cat = 'epil';
-			$this->current_param_menu = '/';
-		}
 
         View::bind_global('logged', $this->logged);
         View::bind_global('lang_id', $this->lang_id);

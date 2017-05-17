@@ -2,7 +2,7 @@
 	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
 		<!-- block breadcrumbs start -->
-		<?= Breadcrumbs::get_breadcrumbs(0, 'articles', false, $current_param_cat) ?>
+		<?= Breadcrumbs::get_breadcrumbs(0, 'articles') ?>
 		<!-- block breadcrumbs end -->
 
 		<h1><?= $page_title ?></h1>
@@ -19,15 +19,15 @@
 						<div class="topic topic--big">
 							<?= $article['edit_interface'] ?>
 							<?php if($article['thumb']): ?>
-								<a href="<?= Data::_('lang_uri') . $cat_url . '/articles/' . $article['alias'] ?>" class="topic__figure"><img src="<?= Im::imagepath('200x150', $article['thumb']) ?>" class="img-left"></a>
+								<a href="<?= Data::_('lang_uri') . '/articles/' . $article['alias'] ?>" class="topic__figure"><img src="<?= Im::imagepath('200x150', $article['thumb']) ?>" class="img-left"></a>
 							<?php endif; ?>
 							
-							<div class="topic__header"><a href="<?= Data::_('lang_uri') . $cat_url . '/articles/' . $article['alias'] ?>"><?= $article['descriptions'][Data::_('lang_id')]['title'] ?></a></div>
+							<div class="topic__header"><a href="<?= Data::_('lang_uri') . '/articles/' . $article['alias'] ?>"><?= $article['descriptions'][Data::_('lang_id')]['title'] ?></a></div>
 							<div class="topic__date"><?= Text::format_date($article['date']) ?></div>
 							<div class="topic__text">
 								<?= $article['descriptions'][Data::_('lang_id')]['teaser'] ?>
 							</div>
-							<a href="<?= Data::_('lang_uri') . $cat_url . '/articles/' . $article['alias'] ?>" class="topic__more">Читать далее</a>
+							<a href="<?= Data::_('lang_uri') . '/articles/' . $article['alias'] ?>" class="topic__more">Читать далее</a>
 						</div>
 						<!-- block topic end -->
 					</div>

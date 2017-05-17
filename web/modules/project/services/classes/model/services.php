@@ -16,11 +16,12 @@ class Model_Services {
 	
     public function add($data = array()) {
 	
-        $result = DB::query(Database::INSERT, 'INSERT INTO ' . $this->tableName . ' (parent_id, alias, `date`, weight, status) VALUES (:parent_id, :alias, :date, :weight, :status)')
+        $result = DB::query(Database::INSERT, 'INSERT INTO ' . $this->tableName . ' (price, parent_id, alias, `date`, weight, status) VALUES (:price, :parent_id, :alias, :date, :weight, :status)')
                 ->parameters(array(
                     ':parent_id' => $data['parent_id'],
 					':alias' => Security::xss_clean($data['alias']),					
-					':date' => Security::xss_clean($data['date']), 					
+					':date' => Security::xss_clean($data['date']), 		
+					':price' => Security::xss_clean($data['price']), 
                     ':weight' => Security::xss_clean($data['weight']),
                     ':status' => Security::xss_clean($data['status'])
                 ))
@@ -48,12 +49,13 @@ class Model_Services {
     }
 	
     public function edit($Id, $data = array()) {
-        DB::query(Database::UPDATE, 'UPDATE ' . $this->tableName . ' SET `parent_id` = :parent_id, `alias` = :alias, `date` = :date, `weight` = :weight, `status` = :status WHERE `id` = :id')
+        DB::query(Database::UPDATE, 'UPDATE ' . $this->tableName . ' SET `price` = :price, `parent_id` = :parent_id, `alias` = :alias, `date` = :date, `weight` = :weight, `status` = :status WHERE `id` = :id')
                 ->parameters(array(
                     ':id' => $Id,  
 					':parent_id' => $data['parent_id'],
                     ':alias' => Security::xss_clean($data['alias']), 
 					':date' => Security::xss_clean($data['date']),
+					':price' => Security::xss_clean($data['price']), 
                     ':weight' => Security::xss_clean($data['weight']), 
                     ':status' => Security::xss_clean($data['status'])
                 ))
@@ -270,6 +272,22 @@ class Model_Services {
         return $contents;		
     }
 	
+	public function get_content_id_by_alias($alias = '') {
+	
+		$sql = "SELECT id FROM " . $this->tableName . " WHERE `alias` = :alias";
+		$query = DB::query(Database::SELECT, $sql, FALSE)
+				->param(':alias', $id)
+				->execute();
+		
+        $result = $query->as_array();
+		
+        if (count($result)>0){
+			return $result[0]['id'];
+		} else {
+			return 0;
+		}    
+    }
+	
     public function get_content($id = '') {
 	
         if (is_numeric($id)) {
@@ -329,7 +347,8 @@ class Model_Services {
 				'parent_id' => $result[0]['parent_id'],
 				'descriptions' => $descriptions,
 				'date' => $result[0]['date'],
-				'alias' => $result[0]['alias'],				
+				'alias' => $result[0]['alias'],	
+				'price' => $result[0]['price'], 				
 				'weight' => $result[0]['weight'],			
 				'status' => $result[0]['status'],
 				'thumb' => $filename,
@@ -376,6 +395,7 @@ class Model_Services {
 			'parent_id' => $result['parent_id'],
 			'descriptions' => $descriptions,
 			'date' => $result['date'],
+			'price' => $result['price'],
 			'alias' => $result['alias'],				
 			'weight' => $result['weight'],			
 			'status' => $result['status'],

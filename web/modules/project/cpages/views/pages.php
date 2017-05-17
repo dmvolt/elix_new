@@ -4,11 +4,23 @@
 		<?= Breadcrumbs::get_breadcrumbs($page['id'], 'cpages', false, $current_param_cat) ?>
 		<!-- block breadcrumbs end -->
 
+		<h1><?= $page_title ?></h1>
+		
 		<!-- block article start -->
 		<article class="article">
 			<?php if($page): ?>
 				<?= $edit_interface ?>
-				<?=$page['descriptions'][Data::_('lang_id')]['body'] ?>
+				<?= $page['descriptions'][Data::_('lang_id')]['body'] ?>
+				
+				<?php if($services): ?>		
+					<?php foreach($services as $value): ?>
+						<?php if(!empty($value['price'])): ?>	
+							<h2><?= $value['descriptions'][Data::_('lang_id')]['title'] ?></h2>
+							<?= $value['price'] ?>
+						<?php endif; ?>
+					<?php endforeach; ?> 
+				<?php endif; ?>
+				
 			<?php else: ?>
 				<h2><?= $text_page_not_found ?></h2>
 			<?php endif; ?>

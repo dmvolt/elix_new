@@ -13,6 +13,7 @@
 			<?php endif; ?>
 			
 			<div class="flex__item flex__item--66 flex__item--bp-1200--100">
+				<h1><?= $page_title ?></h1>
 				<!-- block article start -->
 				<article class="article">
 					<?php if($article): ?>

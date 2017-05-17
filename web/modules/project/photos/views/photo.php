@@ -2,7 +2,7 @@
 	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
 		<!-- block breadcrumbs start -->
-		<?= Breadcrumbs::get_breadcrumbs($article['id'], 'photos', false, $current_param_cat) ?>
+		<?= Breadcrumbs::get_breadcrumbs($article['id'], 'photos') ?>
 		<!-- block breadcrumbs end -->
 		
 		<h1><?= $page_title ?></h1>

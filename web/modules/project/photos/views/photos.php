@@ -2,15 +2,16 @@
 	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
 		<!-- block breadcrumbs start -->
-		<?= Breadcrumbs::get_breadcrumbs(0, 'photos', false, $current_param_cat) ?>
+		<?= Breadcrumbs::get_breadcrumbs(0, 'photos') ?>
 		<!-- block breadcrumbs end -->
 		
 		<?php  if($photos): ?>		
 			
 			<?php foreach($photos as $photo): ?>
-				<h2><a href="<?= Data::_('lang_uri') . '/photos/' . $photo['alias'] ?>"><?= $photo['descriptions'][Data::_('lang_id')]['title'] ?></a></h2>
-				
 				<?php  if($photo['images']): ?>	
+				
+					<h2><a href="<?= Data::_('lang_uri') . '/photos/' . $photo['alias'] ?>"><?= $photo['descriptions'][Data::_('lang_id')]['title'] ?></a></h2>
+				
 					<div class="flex">
 						<?php foreach($photo['images'] as $image): ?>
 						

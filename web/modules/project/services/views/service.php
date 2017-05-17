@@ -9,9 +9,14 @@
 			<article class="article">
 				<?= $edit_interface ?>
 				
-				<h1><?=$service['descriptions'][Data::_('lang_id')]['title'] ?></h1>
+				<h1><?= $service['descriptions'][Data::_('lang_id')]['title'] ?></h1>
 				
-				<?=$service['descriptions'][Data::_('lang_id')]['body'] ?>
+				<?=  $service['descriptions'][Data::_('lang_id')]['body'] ?>
+				
+				<?php  if(!empty($service['price'])): ?>
+					<h2>Прайс лист</h2>
+					<?= $service['price'] ?>
+				<?php endif; ?>
 				
 				<script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
 				<div class="yashare-auto-init" data-yasharel10n="ru" data-yasharetype="button" data-yasharequickservices="yaru,vkontakte,facebook,twitter,odnoklassniki,moimir" <="" p="">

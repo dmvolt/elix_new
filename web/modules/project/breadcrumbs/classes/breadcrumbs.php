@@ -3,59 +3,66 @@ defined('SYSPATH') or die('No direct script access.');
 
 class Breadcrumbs {
 	
-    public static function get_breadcrumbs($id = 0, $module = 'cpages', $cat = false, $pre_cat = false) {
+    public static function get_breadcrumbs($id = 0, $module = 'cpages', $cat1 = false, $cat2 = false, $cat3 = false) {
 		
-		$categories_obj = new Model_Categories();
 		$modules = Kohana::modules();
 		
         $breadcrumbs = array();
+		$cat_tree_prelink = '/services/';
 		
 		$breadcrumbs[] = array(
 			'name' => 'Главная',
 			'href' => 'href="/"',
 		);
 		
-		if($pre_cat){
-			$cat_link = '/';
-			$pre_cat_info = $categories_obj->getCategory(1, $pre_cat);
-			
-			if($pre_cat != 'epil'){$cat_link = '/'.$pre_cat;}
-			
-			$breadcrumbs[] = array(
-				'name' => $pre_cat_info[0]['descriptions'][Data::_('lang_id')]['title'],
-				'href' => 'href="'.$cat_link.'"',
-			);
-		}
 		if($module != 'cpages'){
-			$cat_link = '';
-			if($pre_cat != 'epil'){$cat_link = '/'.$pre_cat;}
 			if (is_file($modules[$module] . 'config/menu' . EXT)) {
 				require MODPATH_PROJECT . $module . '/config/menu' . EXT;
 				$breadcrumbs[] = array(
 					'name' => $menu['name'],
-					'href' => 'href="'.$cat_link.$menu['href'].'"',
+					'href' => 'href="'.$menu['href'].'"',
 				);
 			}
 		}
-		if($cat){
-			$cat_info = $categories_obj->getCategory(1, $cat);
-			
-			$cat_link = '';
-			if($pre_cat != 'epil'){$cat_link = '/'.$pre_cat;}
-			
-			if (is_file($modules[$module] . 'config/menu' . EXT)) {
-				require MODPATH_PROJECT . $module . '/config/menu' . EXT;
-				$cat_link .= $menu['href'];
-			} else {
-				$cat_link .= '/'.$module;
-			}
+		
+		if($cat1){
+			$result1 = Model::factory($module)->get_content($cat1);
 			
 			$breadcrumbs[] = array(
-				'name' => '<img src="/images/back.svg" alt="" class="icon icon--big js-svg"> '.$cat_info[0]['descriptions'][Data::_('lang_id')]['title'],
-				'href' => 'href="'.$cat_link.'/'.$cat_info[0]['alias'].'"',
+				'name' => '<img src="/images/back.svg" alt="" class="icon icon--big js-svg"> '.$result1['descriptions'][Data::_('lang_id')]['title'],
+				'href' => 'href="'.$cat_tree_prelink.$result1['alias'].'"',
 			);
+			
+			$cat_tree_prelink .= $result1['alias'].'/';
 		}
+		
+		if($cat2){
+			$result2 = Model::factory($module)->get_content($cat2);
+			
+			$breadcrumbs[] = array(
+				'name' => '<img src="/images/back.svg" alt="" class="icon icon--big js-svg"> '.$result2['descriptions'][Data::_('lang_id')]['title'],
+				'href' => 'href="'.$cat_tree_prelink.$result2['alias'].'"',
+			);
+			
+			$cat_tree_prelink .= $result2['alias'].'/';
+		}
+		
+		if($cat3){
+			$result3 = Model::factory($module)->get_content($cat3);
+			
+			$breadcrumbs[] = array(
+				'name' => '<img src="/images/back.svg" alt="" class="icon icon--big js-svg"> '.$result3['descriptions'][Data::_('lang_id')]['title'],
+				'href' => 'href="'.$cat_tree_prelink.$result3['alias'].'"',
+			);
+			
+			$cat_tree_prelink .= $result3['alias'].'/';
+		}
+		
         if ($id) {
+			
+			if($module == 'photos'){
+				$module = 'services';
+			}
 			$result = Model::factory($module)->get_content($id);
             if ($result) {         
                 $breadcrumbs[] = array(

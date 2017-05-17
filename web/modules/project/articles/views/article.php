@@ -4,6 +4,8 @@
 		<?= Breadcrumbs::get_breadcrumbs($article['id'], 'articles', false, $current_param_cat) ?>
 		<!-- block breadcrumbs end -->
 
+		<h1><?= $page_title ?></h1>
+		
 		<!-- block article start -->
 		<article class="article">
 			<?php if($article): ?>

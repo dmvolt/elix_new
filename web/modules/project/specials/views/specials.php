@@ -2,7 +2,7 @@
 	<div class="flex__item flex__item--66 flex__item--bp-720--100 main__center">
 
 		<!-- block breadcrumbs start -->
-		<?= Breadcrumbs::get_breadcrumbs(0, 'specials', false, $current_param_cat) ?>
+		<?= Breadcrumbs::get_breadcrumbs(0, 'specials') ?>
 		<!-- block breadcrumbs end -->
 
 		<h1><?= $page_title ?></h1>
@@ -14,7 +14,7 @@
 					<div class="flex__item flex__item--33 flex__item--bp-980--50">
 						<!-- block person start -->
 						<div class="photo">
-							<a href="<?= Data::_('lang_uri').$cat_url.'/doctors/' . $article['alias'] ?>" class="photo__figure">
+							<a href="<?= Data::_('lang_uri').'/doctors/' . $article['alias'] ?>" class="photo__figure">
 								<?php if($article['thumb']): ?>
 									<img src="<?= Im::imagepath('250x200', $article['thumb']) ?>">
 								<?php endif; ?>
