@@ -1,0 +1,4 @@
+**/web/application/logs/
+**/web/krk/application/logs/
+**/web/nsk/application/logs/
+/web/modules/custom/database/config/database.php
